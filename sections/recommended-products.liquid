@@ -1,0 +1,51 @@
+<div class="recommended-products-section" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{- section.settings.limit -}}&intent=related">
+    <div class="container">
+        <div class="section-header">
+            <h2>You may also like</h2>
+        </div>
+        <div class="recomended-products" id="recommendedProducts">
+            {% if recommendations.performed? and recommendations.products_count > 0 %}
+                <div class="row">
+                    {% for product in recommendations.products, limit: section.settings.limit %}
+                        {%  render 'card-product', product: product %}
+                    {% endfor %}
+                </div>            
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    function recommendedProducts(){
+        var url = $('.recommended-products-section').data('url');
+        fetch(url)
+        .then((response)=> response.text())
+        .then((data)=>{
+            var recData = $(data);
+            var items = $('#recommendedProducts', recData);
+            $('#recommendedProducts').replaceWith(items);
+        })
+    }
+    $(document).ready(function(){
+        recommendedProducts();
+    })
+</script>
+
+{% schema %}
+{
+    "name": "Product recommendations",
+    "settings": [
+        {
+            "type": "number",
+            "id": "limit",
+            "label": "Number of products to show",
+            "default": 4
+        }
+    ],
+    "presets":[
+        {
+            "name": "Product recommendations"
+        }
+    ]
+}
+{% endschema %}

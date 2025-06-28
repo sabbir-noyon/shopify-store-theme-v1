@@ -1,0 +1,69 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "name": "Footer group",
+  "type": "footer",
+  "sections": {
+    "sub-footer": {
+      "type": "sub-footer",
+      "settings": {
+        "title": "Subscribe to our emails",
+        "rte": "",
+        "bg_color": "#DDDDDD"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "brand_info_4WLVPY": {
+          "type": "brand_info",
+          "settings": {
+            "rte": "<p>A details about your brand!<\/p>"
+          }
+        },
+        "menu_QpTdMa": {
+          "type": "menu",
+          "settings": {
+            "title": "Footer Menu",
+            "footer_menu": "footer"
+          }
+        },
+        "menu_LKJfbJ": {
+          "type": "menu",
+          "settings": {
+            "title": "Footer Menu",
+            "footer_menu": ""
+          }
+        },
+        "info_NpgedW": {
+          "type": "info",
+          "settings": {
+            "title": "Footer Menu",
+            "html": "You can write your text here. This field also support html"
+          }
+        }
+      },
+      "block_order": [
+        "brand_info_4WLVPY",
+        "menu_QpTdMa",
+        "menu_LKJfbJ",
+        "info_NpgedW"
+      ],
+      "settings": {
+        "column": "4",
+        "copyright": "&copy; {{ shop.name }} | All rights reserved!"
+      }
+    }
+  },
+  "order": [
+    "sub-footer",
+    "footer"
+  ]
+}

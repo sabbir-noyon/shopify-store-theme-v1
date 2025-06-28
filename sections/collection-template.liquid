@@ -1,0 +1,119 @@
+{{ 'collection-filter.js' | asset_url | script_tag }}
+<div class="collection-template-section">
+    <div class="collection-template">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <form id="collection-filter-form">
+                        {% for filter in collection.filters %}
+                            <div class="filter-area">
+                                <p class="filter-label">
+                                    <strong>{{ filter.label }}</strong>
+                                </p>
+                                {% case filter.type %}
+                                    {% when 'boolean' %}
+                                        <ul>
+                                            <li>
+                                                <label for="Filter-{{ filter.param_name }}-{{ filter.true_value.value }}">
+                                                    <input type="checkbox"
+                                                        name="{{ filter.param_name }}"
+                                                        value="{{ filter.true_value.value }}"
+                                                        id="Filter-{{ filter.param_name }}-{{ filter.true_value.value }}"
+                                                        {% if filter.true_value.active -%}checked{%- endif %}
+                                                        {% if filter.true_value.count == 0 and filter.true_value.active == false -%}disabled{%- endif %}>
+                                                        {{ filter.true_value.label }}
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label for="Filter-{{ filter.param_name }}-{{ filter.false_value.value }}">
+                                                    <input type="checkbox"
+                                                        name="{{ filter.param_name }}"
+                                                        value="{{ filter.false_value.value }}"
+                                                        id="Filter-{{ filter.param_name }}-{{ filter.false_value.value }}"
+                                                        {% if filter.false_value.active -%}checked{%- endif %}
+                                                        {% if filter.false_value.count == 0 and filter.false_value.active == false -%}disabled{%- endif %}>
+                                                        {{ filter.false_value.label }}
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    {% when 'list' %}
+                                        <ul class="list-inline">
+                                            {% for filter_value in filter.values %}
+                                                <li class="list-item">
+                                                    <label for="filter-{{ filter.param_name }}--{{ forloop.index }}">
+                                                        <input type="checkbox"
+                                                        name="{{ filter_value.param_name }}" 
+                                                        value="{{ filter_value.value }}"
+                                                        id="filter-{{ filter.param_name }}--{{ forloop.index }}"
+                                                        {% if filter_value.active -%}checked{%- endif %}
+                                                        {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}>
+                                                        {{ filter_value.label }}
+                                                    </label>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% when 'price_range' %}
+                                    <div class="filter-group-display__price-range my-3">
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="Filter-{{filter.min_value.param_name }}">From</label>
+                                                <div class="filter-group-display__price-range-from">
+                                                    <span>{{ cart.currency.symbol }}</span>
+                                                    <input type="number"
+                                                    name="{{ filter.min_value.param_name }}"
+                                                    id="Filter-{{filter.min_value.param_name }}"
+                                                    {% if filter.min_value.value -%} value="{{ filter.min_value.value |  money_without_currency |  replace: ',', '' }}"{%- endif %}
+                                                    placeholder="0"
+                                                    min="0"
+                                                    max="{{ filter.range_max |  money_without_currency |  replace: ',', '' }}">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <label for="Filter-{{filter.max_value.param_name}}">To</label>
+                                                <div class="filter-group-display__price-range-to">
+                                                    <span>{{ cart.currency.symbol }}</span>
+                                                    <input type="number"
+                                                        name="{{ filter.max_value.param_name }}"
+                                                        id="Filter-{{filter.max_value.param_name}}"
+                                                        {% if filter.max_value.value -%} value="{{ filter.max_value.value |  money_without_currency |  replace: ',', '' }}"{%- endif %}
+                                                        placeholder="{{ filter.range_max |  money_without_currency |  replace: ',', '' }}"
+                                                        min="0"
+                                                        max="{{ filter.range_max |  money_without_currency |  replace: ',', '' }}">
+                                                </div>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                        
+                                {% endcase %}
+                            </div>
+                        {% endfor %}                     
+                    </form>
+                </div>
+                <div class="col-md-9">
+                    <div class="row justify-content-between">
+                        <div class="col">
+                            <p>Products: {{ collection.products_count }}</p>
+                        </div>
+                        <div class="col text-right">
+                            <div class="product-sorting">
+                                <select id="sort-by">
+                                    {% assign sort_by = collection.sort_by |  default: collection.default_sort_by %}
+                                    {% for option in collection.sort_options %}
+                                        <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collection-products">
+                        <div class="row">
+                            {% for product in collection.products %}
+                                {% render 'card-product', product: product %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

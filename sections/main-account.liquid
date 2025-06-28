@@ -1,0 +1,59 @@
+<div class="main-account-{{section.id}}">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center my-4">
+            <div class="customer-info">
+                <h4>Welcome back, <span class="text-capitalize">{{ customer.first_name }}</span></h4>
+            </div>
+            <div class="customer-action">
+                <a href="{{ routes.account_logout_url }}">Logout</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <h4>Orders</h4>
+                {% if customer.orders.size > 0 %}                    
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Order date</th>
+                            <th>Payment status</th>
+                            <th>Fulfillment status</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in customer.orders %}
+                            <tr>
+                                <td>
+                                    <a href="{{ order.customer_url }}">
+                                        {{ order.name }}
+                                    </a>
+                                </td>
+                                <td>{{ order.created_at |  time_tag: format: 'date' }}</td>
+                                <td>{{ order.financial_status_label }}</td>
+                                <td>{{ order.fulfillment_status_label }}</td>
+                                <td>{{ order.total_net_amount |  money_with_currency }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="text-center my-5">No orders found!</p>
+            {% endif %}
+            </div>
+            <div class="col-md-3">
+                <h4>Address</h4>
+                {{ customer.default_address | format_address }} 
+                <a href="{{ routes.account_addresses_url }}">Account addresses</a>           
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+    "name": "Customer Account",
+    "settings": []
+}
+{% endschema %}

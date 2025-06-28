@@ -1,0 +1,21 @@
+<div class="announcementbar">
+    <div class="container">
+        <p class="announce-text text-center">
+           {{ section.settings.message }}
+        </p>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Announcementbar",
+    "settings": [
+        {
+            "type": "text",
+            "id": "message",
+            "label": "Announcement text",
+            "default": "25% OFF for US based delivery!"
+        }
+    ]
+}
+{% endschema %}

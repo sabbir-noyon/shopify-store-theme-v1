@@ -1,0 +1,14 @@
+<div class="col-md-3">
+    <div class="card my-2">
+        <div class="card-body">
+            {{ product.featured_image |  image_url: width: 300 |  image_tag  }}
+            <div class="product-info">
+                <p><strong>{{ product.title }}</strong></p>
+                <p>Price: {{ product.price |  money }}</p>
+                <div class="CTA">
+                    <a href="{{ product.url }}" class="btn btn-secondary w-100">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

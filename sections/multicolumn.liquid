@@ -1,0 +1,94 @@
+<div class="multicolumn-section">
+    <div class="container">
+        <div class="section-heading">
+            <h1 class="heading">{{ section.settings.heading }}</h1>
+            {% if section.settings.sub_heading != blank %}
+                <div class="sub-heading">
+                    {{ section.settings.sub_heading }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            {% for block in section.blocks %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            {% if block.settings.image != blank %}
+                                {{ block.settings.image |  image_url: width: 200 |  image_tag }}
+                            {% else %}
+                                {{ 'collection-apparel-1' |  placeholder_svg_tag:'placeholder-svg' }}
+                            {% endif %}
+                        </div>
+                        <div class="card-footer">
+                            <h3 class="title">{{ block.settings.title }}</h3>
+                            <div class="rte">
+                               {{ block.settings.rte }}
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Multicolumn",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Multicolumn"
+        },
+        {
+            "type": "richtext",
+            "id": "sub_heading",
+            "label": "Sub heading"
+        }        
+    ],
+    "blocks": [
+        {
+            "type": "column",
+            "name": "Column",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Column title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "rte",
+                    "label": "Details",
+                    "default": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum officia repellendus cumque quo ullam temporibus animi sapiente, minus, dolores pariatur tempora amet explicabo quas at fugiat quidem quae consequatur est?</p>"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Multicolumn",
+            "category": "Image",
+            "blocks": [
+                {
+                    "type": "column"
+                },
+                {
+                    "type": "column"
+                },
+                {
+                    "type": "column"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

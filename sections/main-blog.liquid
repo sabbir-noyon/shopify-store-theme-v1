@@ -1,0 +1,71 @@
+<div class="blog-template">
+    <div class="container">
+        <div class="blog-title">
+            <h2>{{ blog.title }}</h2>
+        </div>
+        <div class="row">
+            {% for article in blog.articles %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            {% if article.image != blank %}
+                                {{ article.image |  image_url: width:350 |  image_tag }}
+                            {% else %}
+                            {{ 'product-apparel-1' |  placeholder_svg_tag: 'placeholder-svg' }}
+                            {% endif %}
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ article.url }}">{{ article.title |  truncate: 50 |  escape }}</a>
+                            <div class="d-flex justify-content-between">
+                                {% if section.settings.show_date %}
+                                    <span class="col-6 article-date">{{ article.published_at |  time_tag: format:'date' }}</span>
+                                {% endif %}
+                                {% if section.settings.show_author %}
+                                <span class="col-6">{{ article.author }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="rte">
+                                {% if section.settings.show_excerpt %}
+                                    {% if article.excerpt.size > 0 or article.content.size > 0 %}
+                                        {% if article.excerpt.size > 0 %}
+                                            {{ article.excerpt | strip_html |  truncatewords: 20  }}
+                                        {% else %}
+                                        {{ article.content | strip_html |  truncatewords: 20  }}                                            
+                                        {% endif %}
+                                        
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Blog template",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "show_author",
+                "label": "Show Author",
+                "default": true
+            },
+            {
+                "type": "checkbox",
+                "id": "show_date",
+                "label": "Show Date",
+                "default": true
+            },
+            {
+                "type": "checkbox",
+                "id": "show_excerpt",
+                "label": "Show Excerpt",
+                "default": true
+            }
+        ]
+    }
+{% endschema %}

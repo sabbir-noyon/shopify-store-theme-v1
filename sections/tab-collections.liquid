@@ -1,0 +1,75 @@
+<div class="tab-collections my-4">
+    <div class="container">
+        {% if section.blocks.size > 0 %}
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                {% for block in section.blocks %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link{% if forloop.first %} active{% endif %}" id="tab-{{ forloop.index }}" data-bs-toggle="tab" data-bs-target="#collection_{{ forloop.index }}" type="button" role="tab" aria-controls="collection_{{ forloop.index }}" aria-selected="true">
+                            {% if block.settings.collection_title != blank %}
+                                {{ block.settings.collection_title }}
+                            {% else %}
+                                {{ block.settings.collection.title |  default: 'Collection title' }}
+                            {% endif %}
+                        </button>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                {% for block in section.blocks %}
+                <div class="tab-pane fade{% if forloop.first %} show active{% endif %}" id="collection_{{ forloop.index }}" role="tabpanel" aria-labelledby="collection_{{ forloop.index }}" {{ block.shopify_attributes }}>
+                    {%  assign collection = block.settings.collection %}
+                    <div class="row">
+                        {% for product in collection.products %}
+                            <div class="col-md-3">
+                                <div class="card my-2">
+                                    <div class="card-body">
+                                        {{ product.featured_image |  image_url: width: 300 |  image_tag  }}
+                                        <div class="product-info">
+                                            <p><strong>{{ product.title }}</strong></p>
+                                            <p>Price: {{ product.price |  money }}</p>
+                                            <div class="CTA">
+                                                <a href="{{ product.url }}" class="btn btn-secondary w-100">View Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Tab Collections",
+        "settings": [
+        ],
+        "blocks":[
+            {
+                "type": "collection",
+                "name": "Collection",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "collection_title",
+                        "label": "Collection title"
+                    },
+                    {
+                        "type": "collection",
+                        "id": "collection",
+                        "label": "Select collection"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Tab Collection"
+            }
+        ]
+    }
+{% endschema %}

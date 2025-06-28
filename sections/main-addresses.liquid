@@ -1,0 +1,273 @@
+<div class="addresses-page">
+    <div class="container">
+        <div class="page-heading text-center my-5">
+            <h2>Addresses</h2>
+        </div>
+        <hr>
+        <div class="add-new-address-area mb-4">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newAddressModal">Add New Address</button>
+        </div>
+        <div class="row">
+            {% for address in customer.addresses %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex">
+                                <div class="col">
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteAddress">Delete</button>
+                                </div>
+                                <div class="col text-end">
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editModal_{{ forloop.index }}">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            {{ address |  format_address }}
+                        </div>
+                    </div>
+                    {% comment %} Edit modal start {% endcomment %}
+                    <div class="modal fade" id="editModal_{{ forloop.index }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel_{{forloop.index}}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header d-flex justify-content-between align-items-center">
+                              <h5 class="modal-title" id="exampleModalLongTitle">Edit Address</h5>
+                              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              {% form 'customer_address', address %}
+                                <div class="form-group mb-2">
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="address[first_name]" value="{{ form.first_name }}" placeholder="First name">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="address[last_name]" value="{{ form.last_name }}" placeholder="Last name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <input type="text" name="address[company]" class="form-control" value="{{ form.company }}" placeholder="Company">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <input type="text" name="address[address1]" class="form-control" value="{{ form.address1 }}" placeholder="Address 1">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <input type="text" name="address[address2]" class="form-control" value="{{ form.address2 }}" placeholder="Address 2">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <input type="text" name="address[city]" class="form-control" value="{{ form.city }}" placeholder="City">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="select-country">
+                                                <label>Select country</label>
+                                                <select name="address[country]" class="form-control" data-default="{{form.country}}">
+                                                    {{ all_country_option_tags }}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="select-province" style="display:none;">
+                                                <label>Select province</label>
+                                                <select name="address[province]" class="form-control" data-default="{{ form.province }}"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <input type="text" name="address[zip]" class="form-control" value="{{ form.zip }}" placeholder="Zip">
+                                </div>
+                                <div class="form-group mb-2">
+                                    <input type="text" name="address[phone]" class="form-control" value="{{ form.phone }}" placeholder="Phone">
+                                </div>
+                                <div class="form-group mb-2">
+                                    {{ form.set_as_default_checkbox }}
+                                    <label for="address_default_address_{{ form.id }}">Set this as default address</label>
+                                </div>
+                                <div class="action my-3 d-flext text-end">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                              {% endform %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     {% comment %} Edit modal end {% endcomment %}
+                     {% comment %} Delete modal start {% endcomment %}
+
+                     <div class="modal fade" id="deleteAddress" tabindex="-1" role="dialog" aria-labelledby="deleteAddressLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header d-flex justify-content-between align-items-center">
+                              <h5 class="modal-title" id="exampleModalLongTitle">Warning...</h5>
+                              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <h4>Are you sure to delete this item?</h4>
+                            </div>
+                            <div class="card-footer">
+                                <div class="action my-3 d-flex text-end">
+                                    <form action="/account/addresses/{{ address.id }}" method="post" class="mx-2">
+                                        <input type="hidden" name="_method" value="delete">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     {% comment %} Delete modal end {% endcomment %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% comment %} Add new address modal start {% endcomment %}
+<div class="modal fade" id="newAddressModal" tabindex="-1" role="dialog" aria-labelledby="newAddressModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-between align-items-center">
+          <h5 class="modal-title" id="newAddressModalTitle">Add New Address</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {% form 'customer_address', customer.new_address %}
+            <div class="form-group mb-2">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" name="address[first_name]" value="{{ form.first_name }}" placeholder="First name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="address[last_name]" value="{{ form.last_name }}" placeholder="Last name">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" name="address[company]" class="form-control" value="{{ form.company }}" placeholder="Company">
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" name="address[address1]" class="form-control" value="{{ form.address1 }}" placeholder="Address 1">
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" name="address[address2]" class="form-control" value="{{ form.address2 }}" placeholder="Address 2">
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" name="address[city]" class="form-control" value="{{ form.city }}" placeholder="City">
+            </div>
+            <div class="form-group mb-2">
+                <div class="row">
+                    <div class="col">
+                        <div class="select-country">
+                            <label>Select country</label>
+                            <select name="address[country]" class="form-control" data-default="{{form.country}}">
+                                {{ all_country_option_tags }}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="select-province" style="display:none;">
+                            <label>Select province</label>
+                            <select name="address[province]" class="form-control" data-default="{{ form.province }}"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" name="address[zip]" class="form-control" value="{{ form.zip }}" placeholder="Zip">
+            </div>
+            <div class="form-group mb-2">
+                <input type="text" name="address[phone]" class="form-control" value="{{ form.phone }}" placeholder="Phone">
+            </div>
+            <div class="form-group mb-2">
+                {{ form.set_as_default_checkbox }}
+                <label for="address_default_address_{{ form.id }}">Set this as default address</label>
+            </div>
+            <div class="action my-3 d-flext text-end">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            </div>
+          {% endform %}
+        </div>
+      </div>
+    </div>
+  </div>
+ {% comment %} Add new address modal end {% endcomment %}
+
+<script>
+    $(document).ready(function(){
+        $('.select-country select').each(function(index, country){
+            var selectedCountry = $(this).data('default');
+
+            $(this).find('option').each(function(){
+                var country = $(this).val();
+                if(country == selectedCountry){
+                    // console.log(country);
+                    $(this).prop('selected', true);
+                    return false;
+                }
+            });
+
+            var provinces = $(this).find('option:selected').data('provinces');
+
+            // console.log(provinces);
+            if(provinces.length > 0){
+                var $provinceSelect = $(this).closest('.col').next('.col').find('.select-province');
+                var $provinceSelector = $provinceSelect.find('select');
+                var selectedProvince = $provinceSelector.data('default');
+                $provinceSelector.empty();
+
+                $.each(provinces, function(index, province){
+                    $provinceSelector.append($('<option>', {
+                        value: province[0],
+                        text: province[1]
+                    }));
+                });
+
+                $provinceSelector.find('option').each(function(){
+                    var province = $(this).val();
+                    if(province == selectedProvince){
+                        $(this).prop('selected', true);
+                        return false;
+                    }
+                })
+
+                $('.select-province').show();
+            } else{
+                $('.select-province').hide();
+            }
+        });
+
+        // For changing country
+        $('.select-country select').change(function(){
+            var selectedCountry = $(this).find('option:selected');
+            var provinces = selectedCountry.data('provinces');
+            if(provinces.length > 0){
+                var $provinceSelect = $(this).closest('.col').next('.col').find('.select-province');
+                var $provinceSelector = $provinceSelect.find('select');
+                $provinceSelector.empty();
+
+                $.each(provinces, function(index, province){
+                    $provinceSelector.append($('<option>', {
+                        value: province[0],
+                        text: province[1]
+                    }));
+                });                
+
+                $('.select-province').show();
+            }else{
+                $('.select-province').hide();
+            }
+            
+        })
+    });
+</script>

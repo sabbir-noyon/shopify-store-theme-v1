@@ -1,0 +1,92 @@
+{% style %}
+.banner-content{
+    max-width: {{ section.settings.content_width }}%;
+}
+@media(max-width:600px){
+    .banner-content{
+        max-width: 100%;
+    }
+}
+{% endstyle %}
+<div class="image-banner-{{section.id}}">
+    <div class="image-banner-main">
+        {% assign image_width = section.settings.image.width |  divided_by: section.settings.image.aspect_ratio %}
+        {% if section.settings.image != blank %}
+            {{ section.settings.image |  image_url: width:1440 
+            |  image_tag: widths:'375,550,750,1100,1500',
+               width: section.settings.image.width,
+               height: image_width,
+               fethpriority:'high'
+             }}
+        {% else %}
+            {{ 'hero-apparel-1' |  placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+        <div class="container banner-container">
+            <div class="banner-content">
+                <h1>{{ section.settings.heading }}</h1>
+                {% if section.settings.sub_heading != blank %}
+                <p>{{ section.settings.sub_heading }}</p>
+                {% endif %}
+                <div class="banner-CTA">
+                    <div class="cta-action">
+                        <a href="{{ section.settings.url_1 }}" class="btn btn-primary">{{ section.settings.label_1 }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema  %} 
+{
+    "name": "Image Banner",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "header",
+            "content": "Banner Content"
+        },
+        {
+            "type": "range",
+            "id": "content_width",
+            "label": "Content width",
+            "min": 50,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "default": 60
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Our Best collection"
+        },
+        {
+            "type": "richtext",
+            "id": "sub_heading",
+            "label": "Sub Heading"
+        },
+        {
+            "type": "text",
+            "id": "label_1",
+            "label": "Button label",
+            "default": "Buy Now"
+        },
+        {
+            "type": "url",
+            "id": "url_1",
+            "label": "Button Link"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image Banner",
+            "category": "Image"
+        }
+    ]
+}
+{% endschema %}

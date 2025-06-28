@@ -1,0 +1,52 @@
+{% assign colorString = settings.color_defination %}
+{% assign colorCodeArray = colorString | split: ', ' %}
+
+<div class="product_variants">
+    {% unless product.has_only_default_variant %}
+    <div class="product-options my-4">
+        {% for option in product.options_with_values %}
+            <strong>{{ option.name }}</strong> <br>
+            {% if variants_type == 'pills' %}
+                {% if option.name == 'Color' and settings.enable_color_swatch %}
+                    {% for color in option.values %}
+                        {% assign colorValue = color |  downcase %}
+                        {% assign colorCodeValue = colorValue %}
+                        {% for colorCode in colorCodeArray %}
+                            {% assign colorCodePair = colorCode | split: " | " %}
+                            {% if colorValue == colorCodePair[0] %}
+                                {% assign colorCodeValue = colorCodePair[1] %}
+                            {% endif %}
+                        {% endfor %}
+                        <label class="variant-pill">
+                        <input type="radio" id="{{ color.name |  downcase | replace: ' ','_'}}" name="{{ option.name |  downcase | replace: ' ','_' }}" value="{{ color.name }}"{% if option.selected_value == color %} checked{% endif %}>
+                        <span class="variant-button swatch" style="background-color: {{ colorCodeValue }};"></span>
+                        </label>
+                    {% endfor %}
+                {% else %}
+                {% for value in option.values %}
+                    <label class="variant-pill">
+                    <input type="radio" id="{{ value.name |  downcase | replace: ' ','_'}}" name="{{ option.name |  downcase | replace: ' ','_' }}" value="{{ value.name }}"{% if option.selected_value == value %} checked{% endif %}>
+                    <span class="variant-button">{{ value.name }}</span>
+                    </label>
+                {% endfor %}
+                {% endif %}
+            {% else %}
+                <div class="variant-selector">
+                    <select class="variant_select form-control w-50">
+                        {% for value in option.values %}
+                        <option value="{{ value.name }}"{% if option.selected_value == value %} selected{% endif %}>{{ value.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            {% endif %}
+            <br>
+        {% endfor %}
+    </div>
+
+    <select name="id" class="variants d-none">
+        {% for variant in product.variants %}
+            <option value="{{ variant.id }}" data-img="{{ variant.image.src }}" data-available="{{ variant.available }}">{{ variant.title }}</option>
+        {% endfor %}
+    </select>
+    {% endunless %}
+</div>

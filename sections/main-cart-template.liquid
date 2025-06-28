@@ -1,0 +1,88 @@
+<div class="cart-section">
+    <div class="container">
+        {% unless cart.empty? %}
+            <div class="main-cart">
+                {% form 'cart', cart %} 
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>                        
+                    </thead>
+                    <tbody>
+                        {% for line_item in cart.items %}
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="item-image pe-2">
+                                            {{ line_item.image |  image_url: width: 100 |  image_tag }}
+                                        </div>
+                                        <div class="info">
+                                          <a href="{{ line_item.url }}">{{ line_item.product.title }}</a>
+                                          {% unless line_item.properties == empty %}
+                                            {% for property in line_item.properties %}
+                                              {{ property.first }}:                                        
+                                              {% if property.last contains '/uploads/' %}
+                                                <a href="{{ property.last }}">{{ property.last | split: '/' | last }}</a>
+                                              {% else %}
+                                                {{ property.last }}
+                                              {% endif %}
+                                            {% endfor %}
+                                          {% endunless %}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="line-price">{{ line_item.original_price |  money }}</span>
+                                </td>
+                                <td>
+                                    <div class="line-qty">
+                                        <div class="d-flex">
+                                            <input type="number" name="updates[]" class="form-control text-center w-25" value="{{ line_item.quantity }}">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="total-line-price">
+                                      <div class="d-flex">
+                                        <span class="price">{{ line_item.original_line_price | money }}</span>
+                                        <a href="{{ line_item.url_to_remove }}" class="mx-3">Remove</a>
+                                      </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="cart-footer text-end">
+                    <div class="cart-summary">
+                        <p class="subtotal h4 my-5">Subtotal: {{ cart.items_subtotal_price | money_with_currency }}</p>
+                        <p class="total h3">Subtotal: {{ cart.total_price | money_with_currency }}</p>
+                    </div>
+                    <div class="d-flex justify-content-end my-4">
+                      <button type="submit" class="btn btn-primary mx-3">Update</button>
+                      <button type="submit" class="btn btn-secondary" name="checkout">Checkout</button>
+                    </div>
+                </div>
+                {% endform %}
+            </div>
+        {% else %}
+            <div class="no-items text-center py-5">
+                <p class="h2">Your cart is empty!</p>
+                <a href="{{ routes.all_products_collection_url }}" class="btn btn-secondary my-4">Shop Now</a>
+            </div>
+        {% endunless %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Cart template",
+    "settings": [
+        
+    ]
+}
+{% endschema %}

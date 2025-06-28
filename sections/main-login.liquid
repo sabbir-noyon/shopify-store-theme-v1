@@ -1,0 +1,73 @@
+<div class="customer-login-page">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div id="passwordRecover" style="display: none;">
+                    <div class="page-header my-3">
+                        <h2>Reset your password</h2>
+                        <span>We will send you an email to reset your password</span>
+                    </div>
+                    {% form 'recover_customer_password' %}
+                        {% if form.posted_successfully? %}
+                            <span>Link send to your email successfully!</span>
+                        {% endif %}
+                        <div class="form-group">
+                            <input type="email" class="my-3 form-control" name="email" id="recoverPass" placeholder="Email">
+                            {% if form.errors %}
+                                {{ form.errors.messages.form }}
+                            {% endif %}
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button type="submit" class="btn btn-dark">Submit</button>
+                            <p id="cancelRecovery">Cancel</p>
+                        </div>
+                    {% endform %}
+                </div>
+                <div id="cutomerLogin">
+                    <div class="page-header my-5">
+                        <h2>Customer Login</h2>
+                    </div>
+                    <div class="login-form-area">                    
+                        {% form 'customer_login' %}
+                            {% if form.errors %}
+                                {{ form.errors |  default_errors }}
+                            {% endif %}
+                            <div class="login-form-input my-3">
+                                <div class="form-group">
+                                    <input type="email" class=" my-3 form-control" name="customer[email]" id="customerEmail" placeholder="Email">
+                                    <input type="password" class="form-control" name="customer[password]" id="customerPassword" placeholder="Password">
+                                </div>
+                            </div>
+                            <p id="forgotPassord">Forgot password?</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                                <a href="{{ routes.account_register_url }}">Create new account</a>
+                            </div>
+                        {% endform %}
+                        {% if shop.checkout.guest_login %}
+                            <div class="guest-login">
+                                <hr>
+                                <div class="page-header">
+                                    <h2>Login as a guest</h2>
+                                </div>
+                                {% form 'guest_login' %}
+                                    <button type="submit" class="btn btn-dark">Continue</button>
+                                {% endform %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById("forgotPassord").addEventListener("click", function(){
+        document.getElementById("cutomerLogin").style.display = 'none';
+        document.getElementById("passwordRecover").style.display = 'block';
+    });
+    document.getElementById("cancelRecovery").addEventListener("click", function(){
+        document.getElementById("passwordRecover").style.display = 'none';
+        document.getElementById("cutomerLogin").style.display = 'block';
+    })
+</script>

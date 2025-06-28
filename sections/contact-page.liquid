@@ -1,0 +1,26 @@
+<div class="contact-page-template">
+    <div class="container">
+        <div class="page-heading text-center my-5">
+            <h2>{{ page.title }}</h2>
+        </div>
+        <div class="contact-form">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    {% form 'contact' %}
+                        <div class="customer-info my-2">
+                            <div class="form-row">
+                                <input class="col-6 form-control my-2" type="text" name="contact[first_name]" id="f_name" placeholder="First Name">
+                                <input class="col-6 form-control" type="text" name="contact[last_name]" id="l_name" placeholder="Last Name">
+                            </div>
+                            <input class="form-control my-2" type="email" name="contact[email]" id="email" placeholder="Email">
+                        </div>
+                        <div class="customer-message">
+                            <textarea class="form-control" name="contact[message]" id="message" cols="20" placeholder="Message"></textarea>
+                        </div>
+                        <button type="submit" class="my-2 btn btn-secondary">Submit</button>
+                    {% endform %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

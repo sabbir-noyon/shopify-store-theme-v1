@@ -1,0 +1,56 @@
+<div class="cart-drawer-main">
+  {% form 'cart', cart %}
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel" id="drawerCartCounter">Cart &bull; {{ cart.item_count }}</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="cart-items">
+          <table class="table">
+            {% for item in cart.items %}
+              <tr class="item">
+                <td class="item-img">
+                  <img src="{{ item.image | img_url:'80x' }}" alt="{{ item.title }}">
+                </td>
+                <td class="item-info">
+                  <p class="item-title">{{ item.product.title | escape }}</p>
+                  {% unless item.product.has_only_default_variant %}
+                    {% for option in item.options_with_values %}
+                        <small class="item-option">{{ option.value }}</small>
+                        {%  unless forloop.last %} 
+                          /
+                        {% endunless %}
+                    {% endfor %}
+                  {% endunless %}
+                  <div class="item-quantity">
+                    <div class="d-flex">
+                      <span class="qty_selector qty-decrease" onclick="decreaseItem(this)">-</span>
+                      <input type="number" class="w-25" value="{{ item.quantity }}" name="quantity" data-line="{{ forloop.index }}">
+                      <dpan class="qty_selector qty-increase" onclick="increaseItem(this)">+</dpan>
+                    </div>
+                  </div>
+                </td>
+                <td class="item-action">
+                  <a href="/cart/change?line={{ forloop.index }}&quantity=0" data-line="{{ forloop.index }}" onclick="itemRemove(event,this)">Remove</a>
+                  <p class="item-price">{{ item.line_price | money }}</p>
+                </td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+        <div class="offcanvas-footer">
+        <div class="cart-footer">
+          <div class="cart-subtotal d-flex justify-content-between">
+            <h2 class="subtotal-text">Subtotal:</h2>
+            <h2 class="subtotal">{{ cart.total_price |  money }}</h2>
+          </div>
+          <div class="checkout-action">
+            <button type="submit" name="checkout" class="btn btn-primary w-100">Checkout</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    {% endform %}
+</div>

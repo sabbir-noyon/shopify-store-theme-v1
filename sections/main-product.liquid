@@ -1,0 +1,154 @@
+{{ 'product-template.css' |  asset_url |  stylesheet_tag }}
+{{ 'product-variant.js' |  asset_url | script_tag }}
+{{ 'product-form.js' |  asset_url | script_tag }}
+
+<div class="product-template-{{ section.id  }}">
+    <div class="product-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="product-media">
+                        {% for image in product.images %}
+                            {{ image.src |  image_url: width: 600 |  image_tag  }}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="product-informations">
+                        {% assign form_id = 'product-form-' | append: section.id %}
+                        {% form 'product', product, id: form_id, class: 'product-form' %}
+                            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                            {{ form |  payment_terms }}
+                            {% for block in section.blocks %}
+                                {% case block.type %}
+                                    {% when '@app' %}
+                                        {% render block %}
+                                    {% when 'text' %}
+                                        <p {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+                                    {% when 'title' %}
+                                        <h1 class="product-title" {{ block.shopify_attributes }}>{{ product.title }}</h1>
+
+                                    {% when 'price' %}
+                                        <div class="product-price" {{ block.shopify_attributes }}>
+                                            <p>{{ product.price |  money_with_currency }}</p>
+                                        </div>
+                                    {% when 'sku' %}
+                                        <div class="product-sku" {{ block.shopify_attributes }}>
+                                            <p>{{ product.sku }}</p>
+                                        </div>
+
+                                    {% when 'description' %}
+                                        <div class="rte" {{ block.shopify_attributes }}>{{ product.description }}</div>
+
+                                    {% when 'quantity' %}
+                                        <div class="product-quantity" {{ block.shopify_attributes }}>
+                                            <input type="number" name="quantity" value="1" min="1">
+                                        </div>
+                                    {% when 'variants' %}
+                                        {% assign variants_type = block.settings.variant_type %}
+                                        {%  render 'variants', product: product, variants_type: variants_type, block: block %}
+                                    {% when 'buy_buttons' %}
+
+                                        <div class="cart-buttons my-4" {{ block.shopify_attributes }}>
+                                            <button type="submit" class="btn btn-primary mb-2 w-100" name="add">Add to cart</button>
+                                            {% if block.settings.enable_dynamic_button %}
+                                                {{ form |  payment_button }}
+                                            {% endif %}
+                                        </div>
+                                    
+                                    {% else %}
+                                        
+                                {% endcase %}
+                            {% endfor %}
+                        {% endform %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+    {
+        "name": "product template",
+        "class": "product-template",
+        "settings": [
+
+        ],
+        "blocks": [
+            {
+                "type": "@app"
+            },
+            {
+                "type": "text",
+                "name": "Text",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "text",
+                        "label": "Text",
+                        "default": "{{ product.vendor }}"
+                    }
+                ]
+            },
+            {
+                "type": "title",
+                "name": "Title"
+            },
+            {
+                "type": "price",
+                "name": "Price",
+                "limit": 1
+            },
+            {
+                "type": "sku",
+                "name": "Sku"
+            },
+            {
+                "type": "quantity",
+                "name": "Quantity",
+                "limit": 1
+            },
+            {
+                "type": "variants",
+                "name": "Variants",
+                "settings": [
+                    {
+                        "type": "select",
+                        "id": "variant_type",
+                        "label": "Variant type",
+                        "options": [
+                            {
+                                "label": "Pills",
+                                "value": "pills"
+                            },
+                            {
+                                "label": "Selector",
+                                "value": "selector"
+                            }
+                        ],
+                        "default": "pills"
+                    }
+                ]
+            },
+            {
+                "type": "buy_buttons",
+                "name": "Buy buttons",
+                "limit": 1,
+                "settings": [
+                    {
+                        "type": "checkbox",
+                        "id": "enable_dynamic_button",
+                        "label": "Enable Buy Now",
+                        "default": true
+                    }
+                ]
+            },
+            {
+                "type": "description",
+                "name": "Description"
+            }
+        ]
+    }
+{% endschema %}

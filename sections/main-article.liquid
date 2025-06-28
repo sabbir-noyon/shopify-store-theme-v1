@@ -1,0 +1,79 @@
+<div class="article-template">
+    <div class="container">
+        {% if article.image %}
+            <div class="article-image">
+                {{ article.image |  image_url: width: 1100 |  image_tag  }}
+            </div>
+        {% endif %}
+
+        <div class="article-heading my-2">
+            <h1 class="heading">{{ article.title |  escape }}</h1>
+        </div>
+        <div class="article-info">
+            <span class="author-name">{{ article.author }}</span>
+            &bull;
+            <span class="date">{{ article.published_at |  time_tag: format: 'date' }}</span>
+        </div>
+        <hr>
+        <div class="article-content">
+            {{ article.content }}
+        </div>
+        <div class="action-back my-5">
+            <a href="{{ blog.url }}" class="btn btn-outline-dark">Back to {{ blog.title }}</a>
+        </div>
+
+        {% if blog.comments_enabled? %}
+            {% if article.comments_count > 0 %}
+                <div class="commnet-heading my-5">
+                    <h3>Comments ({{ article.comments_count }})</h3>
+                </div>
+                <hr>
+               {% for comment in article.comments %}
+                    {% if comment.status != 'pending' and comment.content %}
+                        <div class="comment-area">
+                            <article class="comment-article">
+                                <div class="author-info">
+                                    <div class="d-flex author-defails align-items-center">
+                                        <div class="author-image">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                            </svg>
+                                        </div>
+                                        <div class="date-author mx-2">
+                                            <h4>{{ comment.author  }}</h4>
+                                            <span> {{ comment.created_at | time_tag: format: 'date' }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment my-2">
+                                    {{ comment.content }}   
+                                </div>                                 
+                            </article>
+                        </div>
+                    {% endif %}
+               {% endfor %}
+            {% endif %}
+            <div class="comment-form my-5">
+                <h3>Write a Comment:</h3>
+                {% form 'new_comment', article %}
+                    {{ form.errors |  default_errors }}
+                    <div class="row my-3">
+                        <div class="col">
+                            <input type="text" name="comment[author]" value="{{ form.author }}" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="col">
+                            <input type="email" name="comment[email]" value="{{ form.email }}" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <textarea name="comment[body]" rows="6" class="form-control" placeholder="Comment">{{ form.body }}</textarea>
+                    </div>
+                    <div class="action my-3">
+                        <button type="submit" class="btn btn-dark">Post</button>
+                    </div>
+                {% endform %}
+            </div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,98 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/banner.jpg",
+        "content_width": 50,
+        "heading": "Our Best collection",
+        "sub_heading": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.<\/p>",
+        "label_1": "Buy Now",
+        "url_1": "#"
+      }
+    },
+    "featured_collection_gr3yiP": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Featured collection",
+        "sub_heading": "",
+        "collection": "best-selling"
+      }
+    },
+    "tab_collections_rHgCj8": {
+      "type": "tab-collections",
+      "blocks": {
+        "collection_UURW7b": {
+          "type": "collection",
+          "settings": {
+            "collection_title": "Featured",
+            "collection": "best-selling"
+          }
+        },
+        "collection_hGdq4d": {
+          "type": "collection",
+          "settings": {
+            "collection_title": "",
+            "collection": "bundle-products"
+          }
+        }
+      },
+      "block_order": [
+        "collection_UURW7b",
+        "collection_hGdq4d"
+      ],
+      "settings": {
+      }
+    },
+    "multicolumn_b8EcmJ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_kUjCmy": {
+          "type": "column",
+          "settings": {
+            "title": "Column title",
+            "rte": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum officia repellendus cumque quo ullam temporibus animi sapiente, minus, dolores pariatur tempora amet explicabo quas at fugiat quidem quae consequatur est?<\/p>"
+          }
+        },
+        "column_NAxpda": {
+          "type": "column",
+          "settings": {
+            "title": "Column title",
+            "rte": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum officia repellendus cumque quo ullam temporibus animi sapiente, minus, dolores pariatur tempora amet explicabo quas at fugiat quidem quae consequatur est?<\/p>"
+          }
+        },
+        "column_JyGVjU": {
+          "type": "column",
+          "settings": {
+            "title": "Column title",
+            "rte": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum officia repellendus cumque quo ullam temporibus animi sapiente, minus, dolores pariatur tempora amet explicabo quas at fugiat quidem quae consequatur est?<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "column_kUjCmy",
+        "column_NAxpda",
+        "column_JyGVjU"
+      ],
+      "settings": {
+        "heading": "Multicolumn",
+        "sub_heading": ""
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection_gr3yiP",
+    "tab_collections_rHgCj8",
+    "multicolumn_b8EcmJ"
+  ]
+}

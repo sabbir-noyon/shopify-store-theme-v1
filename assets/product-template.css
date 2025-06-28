@@ -1,0 +1,35 @@
+.product-media img{
+    width: 100%;
+}
+
+/* product variants */
+.variant-pill{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.variant-pill input[type="radio"]{
+    display: none;
+}
+
+.variant-pill .variant-button{
+    display:  inline-block;
+    padding: 8px 10px;
+    background-color: #DDDDDD;
+    color: #000000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.variant-pill input[type="radio"]:checked + .variant-button{
+    background-color: #000000;
+    color: #FFFFFF;
+}
+.variant-pill .variant-button.swatch{
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid transparent;
+}
+.variant-pill input[type="radio"]:checked + .variant-button.swatch {
+    border: 2px solid #198754;
+}

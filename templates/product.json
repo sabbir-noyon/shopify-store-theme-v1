@@ -1,0 +1,77 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variants": {
+          "type": "variants",
+          "settings": {
+            "variant_type": "pills"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "enable_dynamic_button": true
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "variants",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+      }
+    },
+    "recommended-product": {
+      "type": "recommended-products",
+      "settings": {
+        "limit": 4
+      }
+    },
+    "recently_viewed_DLHzrN": {
+      "type": "recently-viewed",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main-product",
+    "recommended-product",
+    "recently_viewed_DLHzrN"
+  ]
+}

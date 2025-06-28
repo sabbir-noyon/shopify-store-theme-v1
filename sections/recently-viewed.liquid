@@ -1,0 +1,83 @@
+<div class="recently-viewed-products">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Recently viewed products</h2>
+        </div>
+        <div class="row" id="recentlyViewedProduct">Loading....</div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        function updateRecentlyViewedProducts(){
+            const currentProductData = {
+                productId: "{{ product.id }}",
+                title: "{{ product.title }}",
+                image: "{{ product.featured_image | img_url: 'medium' }}",
+                price: "{{ product.price |  money }}",
+                url: "{{ product.url }}"
+            }
+            const productArray = [currentProductData];
+            const maxProducts = 4;
+            const currentproductId = currentProductData.productId;
+            const productArrayString = JSON.stringify(productArray);
+            const storedData = localStorage.getItem('recently_viewed');
+            if(storedData == null){
+                localStorage.setItem('recently_viewed',productArrayString);
+            }else{
+                const oldProductData = localStorage.getItem('recently_viewed');
+                const storedProductCount = (oldProductData.match(/productId/g) || []).length;
+                const revisitedProduct = oldProductData.includes(currentproductId);
+                if(storedProductCount < maxProducts && !revisitedProduct){
+                    const parsedResponse = JSON.parse(oldProductData);
+                    const updatedProductArray = parsedResponse.concat(productArray);
+                    localStorage.setItem('recently_viewed', JSON.stringify(updatedProductArray));
+                }else if(storedProductCount >= maxProducts && !revisitedProduct){
+                    const parsedResponse = JSON.parse(oldProductData);
+                    parsedResponse.shift();
+                    const updatedProductArray = parsedResponse.concat(productArray);
+                    localStorage.setItem('recently_viewed',JSON.stringify(updatedProductArray));
+                }
+            }
+        }
+        updateRecentlyViewedProducts();
+
+        function displayRecentlyViewedProducts(){
+            const storedProductData = JSON.parse(localStorage.getItem('recently_viewed'));
+            const recentProductHtml = [];
+            storedProductData.forEach(function(product){
+                recentProductHtml.push(`
+                <div class="col-md-3">
+                    <div class="card my-2">
+                        <div class="card-body">
+                            <img src="${product.image}" alt="${product.title}" srcset="${product.image}" width="300" height="200">
+                            <div class="product-info">
+                                <p><strong>${product.title}</strong></p>
+                                <p>Price: ${product.price}</p>
+                                <div class="CTA">
+                                    <a href="${product.url}" class="btn btn-secondary w-100">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `)
+            });
+            const recentProductsBlock = recentProductHtml.join('');
+            $('#recentlyViewedProduct').html(recentProductsBlock);
+        }
+        displayRecentlyViewedProducts();
+    })
+</script>
+
+{% schema %}
+    {
+        "name": "Recently Viewed products",
+        "settings": [],
+        "presets": [
+            {
+                "name": "Recently viewed products"
+            }
+        ]
+    }
+{% endschema %}

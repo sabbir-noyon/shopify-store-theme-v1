@@ -1,0 +1,78 @@
+{% style %}
+    .sub-footer{
+        background: {{ section.settings.bg_color }};
+    }
+{% endstyle %}
+
+<div class="sub-footer py-4 mt-4">
+    <div class="sub-footer-main container my-4">
+        <div class="row justify-content-center">
+            <div class="col-md-5 text-center">
+                <h3 class="mb-4">{{ section.settings.title }}</h3>
+                {% if section.settings.rte != blank %}
+                <div class="rte mb-3">
+                    {{ section.settings.rte }}
+                </div>
+                {% endif %}
+                {% form 'customer', id:'newsletterForm' %}
+                    <input type="hidden" name="contact[tags]" value="newsletter">
+                    <div class="input-group">
+                        <input type="email" name="contact[email]" class="form-control" placeholder="Email" required>
+                        <div class="input-group-append">
+                            <button type="submit" class="input-group-text btn btn-dark">Subscribe</button>
+                        </div>
+                    </div>
+                {% endform %}
+                <div id="successMessage" style="display: none;">
+                    <p class="text-success">Successfully subscribed!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#newsletterForm').on('submit', function(event){
+            event.preventDefault();
+            var form = $(this);
+            $.ajax({
+                type: 'POST',
+                url: form.attr('action'),
+                data: form.serialize(),
+                success: function(){
+                    $('#successMessage').show();
+                    form.trigger('reset');
+                },
+                error: function(){
+                    alert("Something is wrong, please try again!");
+                }
+            })
+        })
+    })
+</script>
+
+{% schema %}
+{
+    "name": "Sub footer",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Subscribe to our emails"
+        },
+        {
+            "type": "richtext",
+            "id": "rte",
+            "label": "Text"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "#DDDDDD"
+        }
+    ]
+}
+{% endschema %}
