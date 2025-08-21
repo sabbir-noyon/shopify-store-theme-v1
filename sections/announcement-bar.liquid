@@ -1,0 +1,19 @@
+<div class="announcement-bar">
+    <div class="container">
+        <p class="announce-text">{{ section.settings.announce-text }}</p>
+    </div>
+</div>
+
+{% schema  %}
+{
+    "name":"Announcement Bar",
+    "settings": [
+        {
+            "type": "text",
+            "id": "announce-text",
+            "label": "Announce Text",
+            "default": "50% OFF to California delivery"
+        }
+    ]
+} 
+{% endschema %} 

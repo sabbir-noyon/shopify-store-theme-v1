@@ -9,6 +9,7 @@
 }
 {% endstyle %}
 <div class="image-banner-{{section.id}}">
+   
     <div class="image-banner-main">
         {% assign image_width = section.settings.image.width |  divided_by: section.settings.image.aspect_ratio %}
         {% if section.settings.image != blank %}

@@ -7,7 +7,6 @@
 * made to this file may be overwritten.
 * ------------------------------------------------------------
 */
-
 {
   "sections": {
     "main": {
@@ -23,4 +22,3 @@
     "main"
   ]
 }
-
