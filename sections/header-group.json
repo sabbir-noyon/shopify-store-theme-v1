@@ -8,23 +8,28 @@
  * ------------------------------------------------------------
  */
 {
-  "name": "Header group",
-  "type": "header",
-  "sections": {
-    "announcement": {
-      "type": "announcement-bar",
-      "settings": {}
-    },
-    "header": {
-      "type": "header",
-      "settings": {
-        "menu": "main-menu",
-        "mega_menu": true
-      }
-    }
-  },
-  "order": [
-    "announcement",
-    "header"
-  ]
+	"name": "Header group",
+	"type": "header",
+	"sections": {
+		"announcement": {
+			"type": "announcementbar",
+			"settings": {
+				"message": "25% OFF for US based delivery!"
+			}
+		},
+		"announcement_2": {
+			"type": "announcement-bar",
+			"settings": {
+				"announce-text": "50% OFF for US based delivery!"
+			}
+		},
+		"header": {
+			"type": "header",
+			"settings": {
+				"menu": "main-menu",
+				"mega_menu": true
+			}
+		}
+	},
+	"order": ["announcement", "announcement_2", "header"]
 }
