@@ -1,6 +1,6 @@
 <div class="announcement-bar">
     <div class="container">
-        <p class="announce-text">{{ section.settings.announce-text }}</p>
+        <p class="announce-text">{{ section.settings.announce_text }}</p>
     </div>
 </div>
 
@@ -10,10 +10,23 @@
     "settings": [
         {
             "type": "text",
-            "id": "announce-text",
-            "label": "Announce Text",
+            "id": "announce_text",
+            "label": "Announcement Text",
             "default": "50% OFF to California delivery"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color",
+            "default": "#EDCCCC"
         }
+        
     ]
 } 
 {% endschema %} 
