@@ -46,7 +46,12 @@ html {
 
 /* Header group */
 
-/* announcementbar */
+/* announcement-bar */
+
+.announcement-bar {
+	background-color: #000000;
+}
+
 p.announce-text.text-center {
 	padding: 14px;
 	margin-bottom: 0;
