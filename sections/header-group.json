@@ -8,28 +8,37 @@
  * ------------------------------------------------------------
  */
 {
-	"name": "Header group",
-	"type": "header",
-	"sections": {
-		"announcement": {
-			"type": "announcementbar",
-			"settings": {
-				"message": "25% OFF for US based delivery!"
-			}
-		},
-		"announcement_2": {
-			"type": "announcement-bar",
-			"settings": {
-				"announce_text": "50% OFF for US based delivery!"
-			}
-		},
-		"header": {
-			"type": "header",
-			"settings": {
-				"menu": "main-menu",
-				"mega_menu": true
-			}
-		}
-	},
-	"order": ["announcement", "announcement_2", "header"]
+  "name": "Header group",
+  "type": "header",
+  "sections": {
+    "announcement": {
+      "type": "announcementbar",
+      "settings": {
+        "message": "25% OFF for US based delivery!"
+      }
+    },
+    "announcement_2": {
+      "type": "announcement-bar",
+      "settings": {
+        "announce_text": "50% OFF for US based delivery!",
+        "text_color": "#000000",
+        "bg_color": "#edcccc",
+        "font_family": "arapey_n4",
+        "custom_font_family": "Figtree",
+        "font_weight": "400"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu",
+        "mega_menu": true
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "announcement_2",
+    "header"
+  ]
 }
