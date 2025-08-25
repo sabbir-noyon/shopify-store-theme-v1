@@ -52,6 +52,13 @@ html {
 	background-color: var(--announce-bg-color);
 }
 
+.announce-text {
+	color: var(--announce-text-color);
+	font-family: var(--announce-font-family);
+	font-family: var(--announce-custom-fonts);
+	font-weight: var(--announce-font-weight);
+}
+
 p.announce-text.text-center {
 	padding: 14px;
 	margin-bottom: 0;
