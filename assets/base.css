@@ -2,9 +2,9 @@ html {
 	margin: 0;
 }
 
-/* Google Font */
+/* Google Fonts */
 
-/* Regular / Normal */
+/* Afacad Regular / Normal */
 @font-face {
 	font-family: "Afacad";
 	src: url('{{ "Afacad-VariableFont_wght.ttf" | asset_url }}')
@@ -14,13 +14,23 @@ html {
 	font-display: swap;
 }
 
-/* Italic */
+/* Afacad Italic */
 @font-face {
 	font-family: "Afacad";
 	src: url('{{ "Afacad-Italic-VariableFont_wght.ttf" | asset_url }}')
 		format("truetype");
 	font-weight: 100 900;
 	font-style: italic;
+	font-display: swap;
+}
+
+/* League Spartan*/
+@font-face {
+	font-family: "League Spartan";
+	src: url('{{ "LeagueSpartan-VariableFont_wght.ttf" | asset_url }}')
+		format("truetype");
+	font-weight: 100 900;
+	font-style: normal;
 	font-display: swap;
 }
 
