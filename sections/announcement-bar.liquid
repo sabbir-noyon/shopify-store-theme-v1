@@ -1,4 +1,10 @@
-<div class="announcement-bar" style="--bg-color:{{ section.settings.bg_color }}" >
+<div class="announcement-bar" 
+    style="--announce-bg-color: {{ section.settings.bg_color }};
+           --announce-text-color: {{ section.settings.text_color }};
+           --announce-font-family: {{ section.settings.font_family }};
+           --announce-custom-fonts: {{ section.settings.custom_font_family }};
+           --announce-font-weight: {{ section.settings.font_weight }};">
+   
     <div class="container">
         <p class="announce-text">{{ section.settings.announce_text }}</p>
     </div>
