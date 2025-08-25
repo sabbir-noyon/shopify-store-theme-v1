@@ -49,7 +49,7 @@ html {
 /* announcement-bar */
 
 .announcement-bar {
-	background-color: #000000;
+	background-color: var(--announce-bg-color);
 }
 
 p.announce-text.text-center {
