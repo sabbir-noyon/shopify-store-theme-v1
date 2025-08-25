@@ -2,9 +2,9 @@ html {
 	margin: 0;
 }
 
-/* Google Fonts */
+/* Google Font */
 
-/* Afacad Regular / Normal */
+/* Regular / Normal */
 @font-face {
 	font-family: "Afacad";
 	src: url('{{ "Afacad-VariableFont_wght.ttf" | asset_url }}')
@@ -14,7 +14,7 @@ html {
 	font-display: swap;
 }
 
-/* Afacad Italic */
+/* Italic */
 @font-face {
 	font-family: "Afacad";
 	src: url('{{ "Afacad-Italic-VariableFont_wght.ttf" | asset_url }}')
@@ -37,9 +37,6 @@ html {
 /* Header group */
 
 /* announcementbar */
-.announce-text {
-	font-family:Afacad sans-serif;
-}
 p.announce-text.text-center {
 	padding: 14px;
 	margin-bottom: 0;
