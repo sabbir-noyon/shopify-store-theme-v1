@@ -58,7 +58,7 @@ html {
 	font-size: var(--announce-font-size, 20px);
 	font-weight: var(--announce-font-weight);
 	letter-spacing: var(--announce-letter-spacing, 1px);
-	padding: 16px 10px;
+	padding: 18px 10px;
 	margin-bottom: 0;
 }
 
