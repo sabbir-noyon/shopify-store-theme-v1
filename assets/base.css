@@ -57,7 +57,7 @@ html {
 	font-family: var(--announce-font-family);
 	font-family: var(--announce-custom-fonts);
 	font-weight: var(--announce-font-weight);
-	padding: 108px 14px;
+	padding: 108px 180px;
 	margin-bottom: 0;
 	font-size: 20px;
 	letter-spacing: 1px;
