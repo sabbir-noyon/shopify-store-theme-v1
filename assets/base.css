@@ -54,7 +54,7 @@ html {
 
 .announce-text {
 	color: var(--announce-text-color);
-	font-family: var(--announce-custom-fonts, var(--announce-font-family), sans-serif);
+	font-family: var(--announce-font-stack, system-ui);
 	font-size: var(--announce-font-size, 20px);
 	font-weight: var(--announce-font-weight);
 	letter-spacing: var(--announce-letter-spacing, 1px);
