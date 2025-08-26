@@ -61,8 +61,6 @@ html {
 	letter-spacing: var(--announce-letter-spacing);
 	padding: 20px 10px;
 	margin-bottom: 0;
-	font-size: 20px;
-	letter-spacing: 1px;
 }
 
 /* image-banner */
