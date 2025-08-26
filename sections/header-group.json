@@ -13,7 +13,6 @@
   "sections": {
     "announcement": {
       "type": "announcementbar",
-      "disabled": true,
       "settings": {
         "message": "25% OFF for US based delivery!"
       }
