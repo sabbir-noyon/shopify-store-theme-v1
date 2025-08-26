@@ -19,9 +19,7 @@
     },
     "announcement_2": {
       "type": "announcement-bar",
-      "custom_css": [
-        ".announce-text {font-size: 100px;}"
-      ],
+      "custom_css": [],
       "settings": {
         "announce_text": "50% OFF for US based delivery!",
         "text_color": "#ffffff",
