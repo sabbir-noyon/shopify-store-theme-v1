@@ -25,7 +25,9 @@
         "bg_color": "#000000",
         "font_family": "abril_fatface_n4",
         "custom_font_family": "Afacad, Sans-Serif",
-        "font_weight": "500"
+        "font_size": 35,
+        "font_weight": "500",
+        "letter_spacing": 5
       }
     },
     "header": {
