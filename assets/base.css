@@ -56,9 +56,9 @@ html {
 	color: var(--announce-text-color);
 	font-family: var(--announce-font-family);
 	font-family: var(--announce-custom-fonts);
-	font-size: var(--announce-font-size);
+	font-size: var(--announce-font-size, 20px);
 	font-weight: var(--announce-font-weight);
-	letter-spacing: var(--announce-letter-spacing);
+	letter-spacing: var(--announce-letter-spacing, 1px);
 	padding: 20px 10px;
 	margin-bottom: 0;
 }
