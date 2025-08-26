@@ -20,7 +20,7 @@
     "announcement_2": {
       "type": "announcement-bar",
       "custom_css": [
-        "p{font-size: 100px;}"
+        ".announce-text {font-size: 100px;}"
       ],
       "settings": {
         "announce_text": "50% OFF for US based delivery!",
