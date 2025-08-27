@@ -11,64 +11,6 @@
   "name": "Header group",
   "type": "header",
   "sections": {
-    "17562878062f87c069": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_d6079af_bX7rfa": {
-          "type": "ai_gen_block_d6079af",
-          "settings": {
-            "max_width": 750,
-            "section_padding": 80,
-            "item_spacing": 30,
-            "line_inactive_color": "#e0e0e0",
-            "line_active_color": "#007acc",
-            "dot_size": 16,
-            "dot_inactive_color": "#ffffff",
-            "dot_active_color": "#007acc",
-            "dot_border_color": "#007acc",
-            "content_bg_color": "#ffffff",
-            "content_accent_color": "#007acc",
-            "content_padding": 25,
-            "content_border_radius": 8,
-            "date_color": "#666666",
-            "date_size": 14,
-            "title_color": "#333333",
-            "title_size": 20,
-            "text_color": "#666666",
-            "text_size": 14,
-            "item_1_date": "",
-            "item_1_title": "Company Founded",
-            "item_1_description": "Our journey began with a simple idea and a passion for excellence.",
-            "item_2_date": "",
-            "item_2_title": "First Product Launch",
-            "item_2_description": "We launched our first product and received amazing feedback from customers.",
-            "item_3_date": "",
-            "item_3_title": "Team Expansion",
-            "item_3_description": "We grew our team to better serve our growing customer base.",
-            "item_4_date": "",
-            "item_4_title": "International Expansion",
-            "item_4_description": "We expanded our reach to serve customers around the world.",
-            "item_5_date": "",
-            "item_5_title": "",
-            "item_5_description": "",
-            "item_6_date": "",
-            "item_6_title": "",
-            "item_6_description": "",
-            "item_7_date": "",
-            "item_7_title": "",
-            "item_7_description": "",
-            "item_8_date": "",
-            "item_8_title": "",
-            "item_8_description": ""
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_d6079af_bX7rfa"
-      ],
-      "settings": {}
-    },
     "announcement_2": {
       "type": "announcement-bar",
       "custom_css": [],
@@ -92,7 +34,6 @@
     }
   },
   "order": [
-    "17562878062f87c069",
     "announcement_2",
     "header"
   ]
