@@ -17,9 +17,9 @@
         "ai_gen_block_d6079af_bX7rfa": {
           "type": "ai_gen_block_d6079af",
           "settings": {
-            "max_width": 800,
-            "section_padding": 60,
-            "item_spacing": 40,
+            "max_width": 750,
+            "section_padding": 80,
+            "item_spacing": 30,
             "line_inactive_color": "#e0e0e0",
             "line_active_color": "#007acc",
             "dot_size": 16,
