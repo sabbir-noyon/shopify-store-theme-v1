@@ -11,7 +11,7 @@
   "name": "Header group",
   "type": "header",
   "sections": {
-    "announcement_2": {
+    "announcement_bar": {
       "type": "announcement-bar",
       "custom_css": [],
       "settings": {
@@ -34,7 +34,7 @@
     }
   },
   "order": [
-    "announcement_2",
+    "announcement_bar",
     "header"
   ]
 }
