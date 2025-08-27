@@ -1,6 +1,593 @@
+{% doc %}
+  @prompt
+    An interactive vertical timeline that highlights as the user scrolls
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-timeline-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+    padding: {{ block.settings.section_padding }}px 20px;
+  }
+
+  .ai-timeline-{{ ai_gen_id }} {
+    position: relative;
+    padding-left: 60px;
+  }
+
+  .ai-timeline-line-{{ ai_gen_id }} {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: {{ block.settings.line_inactive_color }};
+    border-radius: 2px;
+  }
+
+  .ai-timeline-progress-{{ ai_gen_id }} {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 4px;
+    background-color: {{ block.settings.line_active_color }};
+    border-radius: 2px;
+    transition: height 0.3s ease;
+    height: 0%;
+  }
+
+  .ai-timeline-item-{{ ai_gen_id }} {
+    position: relative;
+    margin-bottom: {{ block.settings.item_spacing }}px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-timeline-item-{{ ai_gen_id }}.active {
+    opacity: 1;
+  }
+
+  .ai-timeline-dot-{{ ai_gen_id }} {
+    position: absolute;
+    left: -52px;
+    top: 8px;
+    width: {{ block.settings.dot_size }}px;
+    height: {{ block.settings.dot_size }}px;
+    background-color: {{ block.settings.dot_inactive_color }};
+    border: 3px solid {{ block.settings.dot_border_color }};
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+
+  .ai-timeline-item-{{ ai_gen_id }}.active .ai-timeline-dot-{{ ai_gen_id }} {
+    background-color: {{ block.settings.dot_active_color }};
+    transform: scale(1.2);
+  }
+
+  .ai-timeline-content-{{ ai_gen_id }} {
+    background-color: {{ block.settings.content_bg_color }};
+    padding: {{ block.settings.content_padding }}px;
+    border-radius: {{ block.settings.content_border_radius }}px;
+    border-left: 4px solid {{ block.settings.content_accent_color }};
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .ai-timeline-date-{{ ai_gen_id }} {
+    color: {{ block.settings.date_color }};
+    font-size: {{ block.settings.date_size }}px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .ai-timeline-title-{{ ai_gen_id }} {
+    color: {{ block.settings.title_color }};
+    font-size: {{ block.settings.title_size }}px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+  }
+
+  .ai-timeline-description-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-timeline-{{ ai_gen_id }} {
+      padding-left: 40px;
+    }
+
+    .ai-timeline-dot-{{ ai_gen_id }} {
+      left: -32px;
+      width: {{ block.settings.dot_size | times: 0.8 }}px;
+      height: {{ block.settings.dot_size | times: 0.8 }}px;
+    }
+
+    .ai-timeline-content-{{ ai_gen_id }} {
+      padding: {{ block.settings.content_padding | times: 0.8 }}px;
+    }
+
+    .ai-timeline-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size | times: 0.9 }}px;
+    }
+
+    .ai-timeline-description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<scroll-timeline-{{ ai_gen_id }}
+  class="ai-timeline-container-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-timeline-{{ ai_gen_id }}">
+    <div class="ai-timeline-line-{{ ai_gen_id }}"></div>
+    <div class="ai-timeline-progress-{{ ai_gen_id }}"></div>
+
+    {% for i in (1..8) %}
+      {% liquid
+        assign date_key = 'item_' | append: i | append: '_date'
+        assign title_key = 'item_' | append: i | append: '_title'
+        assign description_key = 'item_' | append: i | append: '_description'
+        
+        assign item_date = block.settings[date_key]
+        assign item_title = block.settings[title_key]
+        assign item_description = block.settings[description_key]
+      %}
+
+      {% if item_title != blank %}
+        <div class="ai-timeline-item-{{ ai_gen_id }}" data-timeline-item>
+          <div class="ai-timeline-dot-{{ ai_gen_id }}"></div>
+          <div class="ai-timeline-content-{{ ai_gen_id }}">
+            {% if item_date != blank %}
+              <div class="ai-timeline-date-{{ ai_gen_id }}">{{ item_date }}</div>
+            {% endif %}
+            <h3 class="ai-timeline-title-{{ ai_gen_id }}">{{ item_title }}</h3>
+            {% if item_description != blank %}
+              <div class="ai-timeline-description-{{ ai_gen_id }}">{{ item_description }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</scroll-timeline-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ScrollTimeline{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.timeline = null;
+        this.progressLine = null;
+        this.items = [];
+        this.observer = null;
+      }
+
+      connectedCallback() {
+        this.timeline = this.querySelector('.ai-timeline-{{ ai_gen_id }}');
+        this.progressLine = this.querySelector('.ai-timeline-progress-{{ ai_gen_id }}');
+        this.items = Array.from(this.querySelectorAll('[data-timeline-item]'));
+        
+        this.setupIntersectionObserver();
+        this.setupScrollListener();
+      }
+
+      disconnectedCallback() {
+        if (this.observer) {
+          this.observer.disconnect();
+        }
+        window.removeEventListener('scroll', this.handleScroll);
+      }
+
+      setupIntersectionObserver() {
+        const options = {
+          root: null,
+          rootMargin: '-20% 0px -60% 0px',
+          threshold: 0
+        };
+
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            } else {
+              entry.target.classList.remove('active');
+            }
+          });
+          this.updateProgressLine();
+        }, options);
+
+        this.items.forEach(item => {
+          this.observer.observe(item);
+        });
+      }
+
+      setupScrollListener() {
+        this.handleScroll = this.handleScroll.bind(this);
+        window.addEventListener('scroll', this.handleScroll, { passive: true });
+      }
+
+      handleScroll() {
+        this.updateProgressLine();
+      }
+
+      updateProgressLine() {
+        if (this.items.length === 0) return;
+
+        const activeItems = this.items.filter(item => item.classList.contains('active'));
+        
+        if (activeItems.length === 0) {
+          this.progressLine.style.height = '0%';
+          return;
+        }
+
+        const lastActiveItem = activeItems[activeItems.length - 1];
+        const timelineRect = this.timeline.getBoundingClientRect();
+        const itemRect = lastActiveItem.getBoundingClientRect();
+        
+        const timelineTop = timelineRect.top + window.pageYOffset;
+        const itemTop = itemRect.top + window.pageYOffset;
+        const itemHeight = itemRect.height;
+        
+        const relativePosition = itemTop - timelineTop + (itemHeight * 0.5);
+        const timelineHeight = this.timeline.offsetHeight;
+        
+        const progressPercentage = Math.min(Math.max((relativePosition / timelineHeight) * 100, 0), 100);
+        
+        this.progressLine.style.height = progressPercentage + '%';
+      }
+    }
+
+    customElements.define('scroll-timeline-{{ ai_gen_id }}', ScrollTimeline{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Scroll timeline",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 400,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Section padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "item_spacing",
+      "min": 20,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Item spacing",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Timeline line"
+    },
+    {
+      "type": "color",
+      "id": "line_inactive_color",
+      "label": "Inactive line color",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "color",
+      "id": "line_active_color",
+      "label": "Active line color",
+      "default": "#007acc"
+    },
+    {
+      "type": "header",
+      "content": "Timeline dots"
+    },
+    {
+      "type": "range",
+      "id": "dot_size",
+      "min": 12,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Dot size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "dot_inactive_color",
+      "label": "Inactive dot color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "dot_active_color",
+      "label": "Active dot color",
+      "default": "#007acc"
+    },
+    {
+      "type": "color",
+      "id": "dot_border_color",
+      "label": "Dot border color",
+      "default": "#007acc"
+    },
+    {
+      "type": "header",
+      "content": "Content style"
+    },
+    {
+      "type": "color",
+      "id": "content_bg_color",
+      "label": "Content background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "content_accent_color",
+      "label": "Content accent color",
+      "default": "#007acc"
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "min": 15,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Content padding",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "content_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Content border radius",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "color",
+      "id": "date_color",
+      "label": "Date color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "date_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Date size",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Title size",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 1"
+    },
+    {
+      "type": "text",
+      "id": "item_1_date",
+      "label": "Date"
+    },
+    {
+      "type": "text",
+      "id": "item_1_title",
+      "label": "Title",
+      "default": "Company Founded"
+    },
+    {
+      "type": "textarea",
+      "id": "item_1_description",
+      "label": "Description",
+      "default": "Our journey began with a simple idea and a passion for excellence."
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 2"
+    },
+    {
+      "type": "text",
+      "id": "item_2_date",
+      "label": "Date"
+    },
+    {
+      "type": "text",
+      "id": "item_2_title",
+      "label": "Title",
+      "default": "First Product Launch"
+    },
+    {
+      "type": "textarea",
+      "id": "item_2_description",
+      "label": "Description",
+      "default": "We launched our first product and received amazing feedback from customers."
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 3"
+    },
+    {
+      "type": "text",
+      "id": "item_3_date",
+      "label": "Date"
+    },
+    {
+      "type": "text",
+      "id": "item_3_title",
+      "label": "Title",
+      "default": "Team Expansion"
+    },
+    {
+      "type": "textarea",
+      "id": "item_3_description",
+      "label": "Description",
+      "default": "We grew our team to better serve our growing customer base."
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 4"
+    },
+    {
+      "type": "text",
+      "id": "item_4_date",
+      "label": "Date"
+    },
+    {
+      "type": "text",
+      "id": "item_4_title",
+      "label": "Title",
+      "default": "International Expansion"
+    },
+    {
+      "type": "textarea",
+      "id": "item_4_description",
+      "label": "Description",
+      "default": "We expanded our reach to serve customers around the world."
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 5"
+    },
+    {
+      "type": "text",
+      "id": "item_5_date",
+      "label": "Date"
+    },
+    {
+      "type": "text",
+      "id": "item_5_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "item_5_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 6"
+    },
+    {
+      "type": "text",
+      "id": "item_6_date",
+      "label": "Date"
+    },
+    {
+      "type": "text",
+      "id": "item_6_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "item_6_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 7"
+    },
+    {
+      "type": "text",
+      "id": "item_7_date",
+      "label": "Date"
+    },
+    {
+      "type": "text",
+      "id": "item_7_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "item_7_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Timeline item 8"
+    },
+    {
+      "type": "text",
+      "id": "item_8_date",
+      "label": "Date"
+    },
+    {
+      "type": "text",
+      "id": "item_8_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "item_8_description",
+      "label": "Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scroll timeline"
+    }
+  ]
+}
 {% endschema %}
