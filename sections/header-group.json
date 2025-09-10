@@ -15,7 +15,7 @@
       "type": "announcement-bar",
       "custom_css": [],
       "settings": {
-        "announce_text": "",
+        "announce_text": "aa",
         "text_color": "#ffffff",
         "bg_color": "#000000",
         "font_family": "montserrat_n4",
