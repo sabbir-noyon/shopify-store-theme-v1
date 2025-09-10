@@ -15,7 +15,7 @@
       "type": "announcement-bar",
       "custom_css": [],
       "settings": {
-        "announce_text": "✨ Unlock 50% OFF your first order when you subscribe.",
+        "announce_text": "✨Unlock 50% OFF your first order when you subscribe.",
         "text_color": "#ffffff",
         "bg_color": "#000000",
         "font_family": "montserrat_n4",
