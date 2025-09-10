@@ -8,30 +8,33 @@
  * ------------------------------------------------------------
  */
 {
-	"name": "Header group",
-	"type": "header",
-	"sections": {
-		"announcement_bar": {
-			"type": "announcement-bar",
-			"custom_css": [],
-			"settings": {
-				"announce_text": "50% OFF for US based delivery!",
-				"text_color": "#ffffff",
-				"bg_color": "#000000",
-				"font_family": "montserrat_n4",
-				"custom_font_family": "Afacad, Sans-Serif",
-				"font_size": 20,
-				"font_weight": "500",
-				"letter_spacing": 1
-			}
-		},
-		"header": {
-			"type": "header",
-			"settings": {
-				"menu": "main-menu",
-				"mega_menu": true
-			}
-		}
-	},
-	"order": ["announcement_bar", "header"]
+  "name": "Header group",
+  "type": "header",
+  "sections": {
+    "announcement_bar": {
+      "type": "announcement-bar",
+      "custom_css": [],
+      "settings": {
+        "announce_text": "",
+        "text_color": "#ffffff",
+        "bg_color": "#000000",
+        "font_family": "montserrat_n4",
+        "custom_font_family": "Afacad, Sans-Serif",
+        "font_size": 20,
+        "font_weight": "500",
+        "letter_spacing": 1
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu",
+        "mega_menu": true
+      }
+    }
+  },
+  "order": [
+    "announcement_bar",
+    "header"
+  ]
 }
