@@ -81,6 +81,12 @@ html {
 	}
 }
 
+@media (max-width: 366px) {
+	.announce-text {
+		font-size: 10px;
+	}
+}
+
 /* image-banner */
 .banner-container {
 	position: relative;
