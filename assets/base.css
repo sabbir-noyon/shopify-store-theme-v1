@@ -62,6 +62,25 @@ html {
 	margin-bottom: 0;
 }
 
+@media (max-width: 767px) {
+	.announce-text {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 600px) {
+	.announce-text {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 421px) {
+	.announce-text {
+		font-size: 12px;
+		padding: 10px 6px;
+	}
+}
+
 /* image-banner */
 .banner-container {
 	position: relative;
