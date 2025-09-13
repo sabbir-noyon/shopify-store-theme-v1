@@ -29,7 +29,7 @@
       "type": "header",
       "settings": {
         "menu": "main-menu-1",
-        "mega_menu": false
+        "mega_menu": true
       }
     }
   },
