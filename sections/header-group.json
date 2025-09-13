@@ -28,13 +28,18 @@
     "header": {
       "type": "header",
       "settings": {
-        "menu": "main-menu-1",
+        "menu": "main-menu",
         "mega_menu": true
       }
+    },
+    "header_2": {
+      "type": "header-2",
+      "settings": {}
     }
   },
   "order": [
     "announcement_bar",
-    "header"
+    "header",
+    "header_2"
   ]
 }
