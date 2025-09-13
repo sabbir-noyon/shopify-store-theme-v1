@@ -34,10 +34,7 @@
     },
     "header_2": {
       "type": "header-2",
-      "settings": {
-        "menu_2": "main-menu-1",
-        "mega_menu_2": false
-      }
+      "settings": {}
     }
   },
   "order": [
