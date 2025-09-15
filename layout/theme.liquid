@@ -20,14 +20,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-
+    
     {% style %}
       {{ settings.font_family | font_face: font_display: 'swap' }}
     {% endstyle %}
 
-    
     {{ 'tailwind-output.css' |  asset_url |  stylesheet_tag }}
+
     {{ 'base.css' |  asset_url |  stylesheet_tag }}
 
     <title>
@@ -49,7 +50,7 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-    {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer ></script> {% endcomment %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer ></script>
     {{ 'global.js' |  asset_url |  script_tag }}
   </head>
 
