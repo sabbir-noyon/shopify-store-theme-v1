@@ -15,6 +15,18 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    {% comment %} <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-bx1X2m0f6W8P1zN5tVhjYz47zZ3hA8Kk76seVw+xrDmP3eZfwBWlMtd1xjljx7t0j6YZd8g5GqJcll9+8p2O3g==" crossorigin="anonymous" referrerpolicy="no-referrer"/> {% endcomment %}
+
+    <!-- ✅ Font Awesome CDN (Working Version) -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
     {% comment  %} Google Afacad Font {% endcomment %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +34,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     {% style %}
       {{ settings.font_family | font_face: font_display: 'swap' }}
     {% endstyle %}
@@ -44,14 +56,6 @@
 
     {{ content_for_header }}
 
-    <script>
-      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-      if (Shopify.designMode) {
-        document.documentElement.classList.add('shopify-design-mode');
-      }
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer ></script>
-    {{ 'global.js' |  asset_url |  script_tag }}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -98,5 +102,19 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous" defer></script>
     {{ 'predictive-search.js' |  asset_url | script_tag }}
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer ></script>
+    <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.js" defer></script>
+
+    {{ 'flowbite.js' |  asset_url |  script_tag }}
+    {{ 'daisyui.js' |  asset_url |  script_tag }}
+    {{ 'global.js' |  asset_url |  script_tag }}
+    <i class="fa-solid fa-heart" style="font-size:32px;"></i>
+    <i class="fa-solid fa-fire text-danger" style="font-size:40px;"></i>
   </body>
 </html>

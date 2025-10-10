@@ -78,11 +78,213 @@ function itemRemove(e, el) {
 	});
 }
 
-// // For mobile: toggle dropdown on click
-// document.querySelectorAll(".dropdown > a").forEach((dropdownToggle) => {
-// 	dropdownToggle.addEventListener("click", (e) => {
-// 		e.preventDefault();
-// 		const menu = dropdownToggle.nextElementSibling;
-// 		menu.style.display = menu.style.display === "block" ? "none" : "block";
-// 	});
+/*  =======================
+     Header 2 Area Start 
+	======================
+*/
+
+// // Mobile menu toggle
+// const menuToggle = document.getElementById("menu-toggle");
+// const mobileMenu = document.getElementById("mobile-menu");
+
+// menuToggle.addEventListener("click", () => {
+// 	mobileMenu.style.left = mobileMenu.style.left === "0px" ? "-100%" : "0px";
 // });
+
+// // Close menu when clicking outside
+// document.addEventListener("click", (e) => {
+// 	if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+// 		mobileMenu.style.left = "-100%";
+// 	}
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+	const menuToggle = document.getElementById("menu-toggle");
+	const mobileMenu = document.getElementById("mobile-menu");
+
+	if (menuToggle && mobileMenu) {
+		menuToggle.addEventListener("click", function (e) {
+			e.stopPropagation();
+			if (mobileMenu.classList.contains("open")) {
+				mobileMenu.classList.remove("open");
+			} else {
+				mobileMenu.classList.add("open");
+			}
+		});
+
+		// Close if clicked outside
+		document.addEventListener("click", function (e) {
+			if (
+				mobileMenu.classList.contains("open") &&
+				!mobileMenu.contains(e.target) &&
+				!menuToggle.contains(e.target)
+			) {
+				mobileMenu.classList.remove("open");
+			}
+		});
+	}
+});
+
+/*  =======================
+     Header 2 Area End 
+	======================
+*/
+
+/*  =======================
+     Header 3 Area Start 
+	======================
+*/
+
+document.addEventListener("DOMContentLoaded", function () {
+	// Mobile Hamburger Menu
+	const toggle = document.getElementById("hamburger-toggle");
+	const mobileMenu = document.getElementById("mobile-menu");
+
+	if (toggle && mobileMenu) {
+		toggle.addEventListener("click", function (e) {
+			e.stopPropagation();
+			mobileMenu.classList.toggle("-translate-x-full");
+		});
+
+		// Close mobile menu if clicked outside
+		document.addEventListener("click", function (e) {
+			if (!mobileMenu.contains(e.target) && !toggle.contains(e.target)) {
+				mobileMenu.classList.add("-translate-x-full");
+			}
+		});
+	}
+
+	// Desktop Dropdowns
+	const dropdowns = document.querySelectorAll(".header3-nav li.relative");
+	dropdowns.forEach((li) => {
+		const submenu = li.querySelector("ul");
+		if (!submenu) return;
+
+		li.addEventListener("mouseenter", () => {
+			submenu.classList.remove("opacity-0", "pointer-events-none");
+			submenu.classList.add("opacity-100", "pointer-events-auto");
+		});
+
+		li.addEventListener("mouseleave", () => {
+			submenu.classList.add("opacity-0", "pointer-events-none");
+			submenu.classList.remove("opacity-100", "pointer-events-auto");
+		});
+	});
+});
+
+// Mobile Hamburger Menu
+const toggle = document.getElementById("hamburger-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+
+if (toggle && mobileMenu) {
+	toggle.addEventListener("click", function (e) {
+		e.stopPropagation();
+		mobileMenu.classList.toggle("-translate-x-full");
+	});
+
+	document.addEventListener("click", function (e) {
+		if (!mobileMenu.contains(e.target) && !toggle.contains(e.target)) {
+			mobileMenu.classList.add("-translate-x-full");
+		}
+	});
+}
+
+/*  =======================
+     Header 3 Area End 
+	======================
+*/
+
+/*=====================
+	Header-Main Start
+=======================*/
+
+// Off-canvas drawer behavior (left) — append to assets/global.js
+
+(function () {
+	const openBtn = document.getElementById("menu-toggle"); // your hamburger
+	const drawer = document.getElementById("site-drawer");
+	const drawerPanel = drawer?.querySelector(".site-drawer__panel");
+	const backdrop = document.getElementById("drawer-backdrop");
+	const closeBtn = document.getElementById("drawer-close");
+	const body = document.documentElement || document.body;
+
+	if (!drawer || !openBtn) return;
+
+	function openDrawer() {
+		drawer.classList.add("open");
+		drawer.setAttribute("aria-hidden", "false");
+		document.body.classList.add("drawer-locked");
+		// move focus to first focusable item in drawer
+		setTimeout(() => {
+			const first = drawer.querySelector(
+				'button, a, [tabindex]:not([tabindex="-1"])'
+			);
+			if (first) first.focus();
+		}, 120);
+	}
+
+	function closeDrawer() {
+		drawer.classList.remove("open");
+		drawer.setAttribute("aria-hidden", "true");
+		document.body.classList.remove("drawer-locked");
+		openBtn.focus();
+	}
+
+	openBtn.addEventListener("click", (e) => {
+		e.stopPropagation();
+		openDrawer();
+	});
+
+	closeBtn &&
+		closeBtn.addEventListener("click", (e) => {
+			e.stopPropagation();
+			closeDrawer();
+		});
+	backdrop &&
+		backdrop.addEventListener("click", (e) => {
+			e.stopPropagation();
+			closeDrawer();
+		});
+
+	// close when any link inside drawer is clicked
+	drawer.addEventListener("click", (e) => {
+		const target = e.target;
+		if (target.closest("a") || target.classList.contains("drawer-link")) {
+			// close drawer after click (useful for SPA/normal link)
+			closeDrawer();
+		}
+	});
+
+	// Escape to close
+	document.addEventListener("keydown", (e) => {
+		if (e.key === "Escape" && drawer.classList.contains("open")) {
+			closeDrawer();
+		}
+	});
+
+	// Toggle submenu behavior
+	drawer.querySelectorAll(".drawer-toggle").forEach((btn) => {
+		btn.addEventListener("click", function (ev) {
+			ev.preventDefault();
+			const item = this.closest(".drawer-item");
+			const expanded = this.getAttribute("aria-expanded") === "true";
+			this.setAttribute("aria-expanded", String(!expanded));
+			item.classList.toggle("open");
+		});
+	});
+
+	// optional: close drawer if user resizes to desktop
+	window.addEventListener("resize", () => {
+		if (window.innerWidth > 992 && drawer.classList.contains("open")) {
+			closeDrawer();
+		}
+	});
+
+	// Prevent clicks inside panel from closing (backdrop handles outside)
+	drawerPanel &&
+		drawerPanel.addEventListener("click", (e) => e.stopPropagation());
+})();
+
+/*====================
+	Header-Main End
+======================*/

@@ -1,0 +1,112 @@
+<!-- Header-3 Section -->
+<div class="header3-section bg-white shadow-md">
+  <div class="header3-container mx-auto px-4 flex items-center justify-between h-16">
+
+    <!-- Hamburger (Mobile Only) -->
+    <div class="lg:hidden">
+      <button id="hamburger-toggle" class="text-2xl focus:outline-none">☰</button>
+    </div>
+
+    <!-- Logo -->
+    <div class="flex-1 flex justify-center lg:justify-start">
+      <a href="/">
+        <img src="#" alt="Logo" class="h-10 lg:h-12">
+      </a>
+    </div>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden header3-nav lg:flex flex-12 justify-center text-[20px] font-['Afacad']">
+      <ul class="flex space-x-10">
+        <li>
+          <a href="#" class="text-black hover:text-blue-600 no-underline">Home</a>
+        </li>
+
+        <!-- Shop Dropdown -->
+        <li class="relative group">
+          <a href="#" class="text-black hover:text-blue-600 no-underline">Shop ▾</a>
+          <ul class="absolute p-2 text-center left-[-50px] top-full mt-0 flex-col bg-white shadow-lg rounded text-black min-w-[200px] z-50
+           opacity-0 pointer-events-none transition-opacity duration-200">
+            <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">All Products</a></li>
+            <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Men’s</a></li>
+            <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Women’s</a></li>
+            <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Accessories</a></li>
+            <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Sale</a></li>
+          </ul>
+        </li>
+
+        <!-- Collections Dropdown -->
+        <li class="relative group">
+          <a href="#" class="text-black hover:text-blue-600 no-underline">Collections ▾</a>
+          <ul class="absolute p-2 text-center left-[-50px] top-full mt-0 flex-col bg-white shadow-lg rounded text-black min-w-[200px] z-50
+           opacity-0 pointer-events-none transition-opacity duration-200">
+            <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">New Arrivals</a></li>
+            <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Best Sellers</a></li>
+            <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Seasonal</a></li>
+            <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Limited Edition</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#" class="text-black hover:text-blue-600 no-underline">About Us</a></li>
+        <li><a href="#" class="text-black hover:text-blue-600 no-underline">Blogs</a></li>
+        <li><a href="#" class="text-black hover:text-blue-600 no-underline">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Right Icons -->
+    <div class="flex items-center space-x-4 text-black">
+      <a href="/account" class="text-2xl text-black"><i class="bi bi-person"></i></a>
+      <a href="#search" class="text-xl text-black"><i class="bi bi-search"></i></a>
+      <a href="/pages/wishlist" class="text-xl text-black"><i class="bi bi-heart"></i></a>
+      <a href="/cart" class="text-xl text-black"><i class="bi bi-cart"></i></a>
+    </div>
+
+  </div>
+
+  <!-- Mobile Menu Offcanvas -->
+  <div id="mobile-menu" class="fixed inset-0 bg-white transform -translate-x-full transition-transform duration-300 z-50 lg:hidden">
+    <ul class="flex flex-col p-4 space-y-4 text-black">
+      <li><a href="#" class="no-underline">Home</a></li>
+      <li>
+        <a href="#" class="no-underline">Shop ▾</a>
+        <ul class="ml-4 mt-2 space-y-2">
+          <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">All Products</a></li>
+          <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Men’s</a></li>
+          <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Women’s</a></li>
+          <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Accessories</a></li>
+          <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Sale</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="no-underline">Collections ▾</a>
+        <ul class="ml-4 mt-2 space-y-2">
+          <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">New Arrivals</a></li>
+          <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Best Sellers</a></li>
+          <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Seasonal</a></li>
+          <li><a href="#" class="block px-4 py-2 text-black no-underline hover:bg-gray-100">Limited Edition</a></li>
+        </ul>
+      </li>
+      <li><a href="#" class="no-underline">About Us</a></li>
+      <li><a href="#" class="no-underline">Blogs</a></li>
+      <li><a href="#" class="no-underline">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Header 3",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu_3",
+      "label": "Menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "mega_menu_3",
+      "label": "Enable Mega menu",
+      "default": false
+    }
+  ]
+}
+{% endschema %}

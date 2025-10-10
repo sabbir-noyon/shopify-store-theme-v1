@@ -25,21 +25,13 @@
         "letter_spacing": 1
       }
     },
-    "header": {
-      "type": "header",
-      "settings": {
-        "menu": "main-menu",
-        "mega_menu": true
-      }
-    },
-    "header_2": {
-      "type": "header-2",
+    "header_main": {
+      "type": "header-main",
       "settings": {}
     }
   },
   "order": [
     "announcement_bar",
-    "header",
-    "header_2"
+    "header_main"
   ]
 }
