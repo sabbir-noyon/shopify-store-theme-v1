@@ -485,12 +485,10 @@ html {
 		gap: 10px;
 	}
 
-	/* Nav menu parent items text size */
 	.column-navigation .main-nav .nav-list li > a {
 		font-size: 20px;
 	}
 
-	/* Right-side icons size */
 	.column-icons .nav-icon-item svg {
 		width: 20px;
 		height: 20px;
@@ -506,12 +504,10 @@ html {
 		gap: 5px;
 	}
 
-	/* Nav menu parent items text size */
 	.column-navigation .main-nav .nav-list li > a {
 		font-size: 20px;
 	}
 
-	/* Right-side icons size */
 	.column-icons .nav-icon-item svg {
 		width: 20px;
 		height: 20px;
@@ -524,7 +520,6 @@ html {
 }
 
 @media (max-width: 1129px) {
-	/* Right icons */
 	.column-icons .nav-icon-list {
 		gap: 8px;
 	}
@@ -546,7 +541,6 @@ html {
 		height: 20px;
 	}
 
-	/* Right icons */
 	.column-icons .nav-icon-list {
 		gap: 10px;
 	}
@@ -562,21 +556,18 @@ html {
 		height: 19px;
 	}
 
-	/* Right icons */
 	.column-icons .nav-icon-list {
 		gap: 8px;
 	}
 }
 
 @media (max-width: 424px) {
-	/* Right icons */
 	.column-icons .nav-icon-list {
 		gap: 5px;
 	}
 }
 
 @media (max-width: 374px) {
-	/* Right icons */
 	.column-icons .nav-icon-list {
 		gap: 4px;
 	}
@@ -584,31 +575,25 @@ html {
 
 /*=== Logo Area Start ===*/
 
-/* make container relative so absolute-centering works */
 .header-main-container {
 	position: relative;
 }
 
-/* base: the .site-logo is the IMG element itself */
 .column-logo {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-/* real image selector (your <img class="site-logo">) */
 .column-logo .site-logo {
 	display: block;
-	/* max-width: 240px; */
 	width: 230px;
 	height: auto;
 	object-fit: cover;
 	transition: width 0.18s ease, transform 0.18s ease;
 }
 
-/* Center the logo on tablet / mobile without moving hamburger/icons */
 @media (max-width: 991px) {
-	/* center horizontally (and vertically inside header) */
 	.column-logo {
 		position: absolute;
 		left: 50%;
@@ -620,7 +605,6 @@ html {
 		padding-right: 40px;
 	}
 
-	/* keep hamburger & icons clickable/visible above the logo */
 	.hamburger-menu,
 	.column-icons {
 		position: relative;
@@ -628,7 +612,6 @@ html {
 	}
 }
 
-/* further scaling on small phones */
 @media (max-width: 767px) {
 	.column-logo {
 		width: 240px;
@@ -652,7 +635,6 @@ html {
 	}
 }
 
-/* ensure the drawer logo not offset by previous hack */
 .site-drawer__logo {
 	margin-left: 0 !important;
 }
@@ -666,9 +648,9 @@ html {
 	position: fixed;
 	inset: 0;
 	z-index: 3000;
-	pointer-events: none; /* disabled while closed */
-	--drawer-width: 66vw; /* default: 2/3 width */
-	--drawer-max: 520px; /* cap */
+	pointer-events: none;
+	--drawer-width: 66vw;
+	--drawer-max: 520px;
 }
 
 /* panel (the actual drawer) */
@@ -679,22 +661,21 @@ html {
 	width: var(--drawer-width);
 	max-width: var(--drawer-max);
 	height: 100vh;
-	background: #ffffff; /* ensure white bg */
+	background: #ffffff;
 	box-shadow: 2px 0 24px rgba(0, 0, 0, 0.12);
 	padding: 20px;
 	box-sizing: border-box;
 	overflow-y: auto;
 	transition: transform 0.32s cubic-bezier(0.2, 0.9, 0.2, 1);
-	transform: translateX(-100%); /* HIDDEN (off-left) by default */
+	transform: translateX(-100%);
 	will-change: transform;
-	pointer-events: auto; /* allow interaction when visible */
+	pointer-events: auto;
 	display: flex;
 	flex-direction: column;
 	gap: 18px;
-	z-index: 3001; /* above the backdrop */
+	z-index: 3001;
 }
 
-/* OPEN state: slide in */
 .site-drawer.open .site-drawer__panel {
 	transform: translateX(0);
 }
@@ -714,7 +695,6 @@ html {
 	pointer-events: auto;
 }
 
-/* small UI bits inside drawer (kept from your earlier rules) */
 .site-drawer__header {
 	display: flex;
 	align-items: center;
@@ -988,7 +968,6 @@ html {
 	object-fit: contain;
 }
 
-/* Body lock while open (JS toggles this class) */
 body.drawer-locked {
 	overflow: hidden !important;
 	touch-action: none;
@@ -1002,7 +981,7 @@ body.drawer-locked {
 	}
 }
 
-/* Tablet: slightly narrower than default */
+/* Tablet: narrower than default */
 @media (min-width: 768px) and (max-width: 991px) {
 	.site-drawer {
 		--drawer-width: 50vw;
@@ -1010,7 +989,7 @@ body.drawer-locked {
 	}
 }
 
-/* Mobile: a bit wider (so drawer feels roomy on phones) */
+/* Mobile: a bit wider */
 @media (max-width: 767px) {
 	.site-drawer {
 		--drawer-width: 78vw;

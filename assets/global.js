@@ -198,10 +198,10 @@ if (toggle && mobileMenu) {
 	Header-Main Start
 =======================*/
 
-// Off-canvas drawer behavior (left) — append to assets/global.js
+// Off-canvas drawer
 
 (function () {
-	const openBtn = document.getElementById("menu-toggle"); // your hamburger
+	const openBtn = document.getElementById("menu-toggle");
 	const drawer = document.getElementById("site-drawer");
 	const drawerPanel = drawer?.querySelector(".site-drawer__panel");
 	const backdrop = document.getElementById("drawer-backdrop");
@@ -250,7 +250,7 @@ if (toggle && mobileMenu) {
 	drawer.addEventListener("click", (e) => {
 		const target = e.target;
 		if (target.closest("a") || target.classList.contains("drawer-link")) {
-			// close drawer after click (useful for SPA/normal link)
+			// close drawer after click
 			closeDrawer();
 		}
 	});
@@ -273,14 +273,14 @@ if (toggle && mobileMenu) {
 		});
 	});
 
-	// optional: close drawer if user resizes to desktop
+	// Close drawer if user resizes to desktop
 	window.addEventListener("resize", () => {
 		if (window.innerWidth > 992 && drawer.classList.contains("open")) {
 			closeDrawer();
 		}
 	});
 
-	// Prevent clicks inside panel from closing (backdrop handles outside)
+	// Prevent clicks inside panel from closing
 	drawerPanel &&
 		drawerPanel.addEventListener("click", (e) => e.stopPropagation());
 })();
