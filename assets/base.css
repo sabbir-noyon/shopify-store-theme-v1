@@ -350,6 +350,27 @@ html {
 	color: #c8102e;
 }
 
+.column-navigation .main-nav .nav-list li a svg {
+	transition: transform 0.4s ease;
+}
+
+.nav-dropdown:hover > a svg {
+	color: #c8102e;
+}
+
+.nav-dropdown:hover > a {
+	color: #c8102e !important;
+}
+
+.nav-dropdown:hover > a svg {
+	transform: rotate(180deg);
+}
+
+.nav-dropdown-toggle svg,
+.nav-dropdown-toggle svg g {
+	fill: currentColor;
+}
+
 /* Desktop dropdown */
 .nav-dropdown {
 	position: relative;
@@ -718,8 +739,23 @@ html {
 	padding: 6px;
 	transition: color 0.2s;
 }
-.site-drawer__close:hover {
+.site-drawer__close svg:hover,
+.site-drawer__close svg:focus,
+.site-drawer__close svg:active {
 	color: #c8102e;
+}
+
+.site-drawer__auth .btn--login {
+	outline: none;
+	border: none;
+}
+
+.site-drawer__auth .btn--login:hover,
+.site-drawer__auth .btn--login:focus,
+.site-drawer__auth .btn--login:active {
+	outline: none !important;
+	box-shadow: none !important;
+	text-decoration: none;
 }
 
 .btn--login {
@@ -730,7 +766,21 @@ html {
 	background: transparent;
 	padding: 6px 14px;
 	font-weight: 600;
+	transition: color 0.2s ease;
 }
+
+.btn--login svg,
+.btn--login svg path {
+	fill: currentColor;
+	transition: fill 0.2s ease;
+}
+
+.btn--login:hover,
+.btn--login:focus,
+.btn--login:active {
+	color: #c8102e;
+}
+
 .btn--login svg {
 	width: 18px;
 	height: 18px;
@@ -819,12 +869,33 @@ html {
 	color: #c8102e;
 }
 
+.drawer-toggle .chevron {
+	transition: transform 0.3s ease;
+	transform: rotate(0deg);
+}
+
+.drawer-item.open .drawer-toggle .chevron {
+	transform: rotate(180deg);
+}
+
+.drawer-item.open > .drawer-toggle {
+	color: #c8102e;
+}
+
+.drawer-item.open > .drawer-toggle .chevron {
+	fill: #c8102e;
+}
+
 .site-drawer__actions {
 	display: flex;
 	gap: 10px;
 	margin-top: 12px;
 }
 .drawer-action {
+	text-decoration: none;
+	color: inherit;
+	outline: none;
+	border: none;
 	display: flex;
 	align-items: center;
 	gap: 12px;
@@ -833,6 +904,19 @@ html {
 	background-color: #e4e4e4;
 	border-radius: 50px;
 	padding: 12px 18px;
+	transition: color 0.2s ease;
+}
+
+.drawer-action:hover,
+.drawer-action:focus,
+.drawer-action:active {
+	color: #c8102e;
+}
+
+.drawer-action svg,
+.drawer-action svg path {
+	fill: currentColor;
+	transition: fill 0.2s ease;
 }
 
 .drawer-action .drawer-action-value {
@@ -868,6 +952,12 @@ html {
 	border: 1px solid #ededed;
 	border-radius: 50%;
 	padding: 14px;
+}
+
+.socials-icons .social:hover,
+.socials-icons .social:focus,
+.socials-icons .social:active {
+	background-color: #e4e4e4;
 }
 
 .social svg {
