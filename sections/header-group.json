@@ -28,10 +28,15 @@
     "header_main": {
       "type": "header-main",
       "settings": {}
+    },
+    "header_mega_menu": {
+      "type": "header-mega-menu",
+      "settings": {}
     }
   },
   "order": [
     "announcement_bar",
-    "header_main"
+    "header_main",
+    "header_mega_menu"
   ]
 }

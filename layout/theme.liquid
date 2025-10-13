@@ -41,6 +41,8 @@
 
     {{ 'tailwind-output.css' |  asset_url |  stylesheet_tag }}
 
+    {% comment %} <link rel="stylesheet" href="{{ 'header-dropdown.css' | asset_url }}"> {% endcomment %}
+
     {{ 'base.css' |  asset_url |  stylesheet_tag }}
 
     <title>
@@ -113,8 +115,9 @@
 
     {{ 'flowbite.js' |  asset_url |  script_tag }}
     {{ 'daisyui.js' |  asset_url |  script_tag }}
+
+    {% comment %} <script src="{{ 'header-dropdown.js' | asset_url }}" defer="defer"></script> {% endcomment %}
+
     {{ 'global.js' |  asset_url |  script_tag }}
-    <i class="fa-solid fa-heart" style="font-size:32px;"></i>
-    <i class="fa-solid fa-fire text-danger" style="font-size:40px;"></i>
   </body>
 </html>
