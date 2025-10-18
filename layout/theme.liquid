@@ -41,8 +41,9 @@
 
     {{ 'tailwind-output.css' |  asset_url |  stylesheet_tag }}
 
+    
+    {% comment %} <link rel="stylesheet" href="{{ 'header-mega-menu.css' | asset_url }}"> {% endcomment %}
     {% comment %} <link rel="stylesheet" href="{{ 'header-dropdown.css' | asset_url }}"> {% endcomment %}
-
     {{ 'base.css' |  asset_url |  stylesheet_tag }}
 
     <title>
@@ -116,8 +117,8 @@
     {{ 'flowbite.js' |  asset_url |  script_tag }}
     {{ 'daisyui.js' |  asset_url |  script_tag }}
 
+    {% comment %} <script src="{{ 'header-mega-menu.js' | asset_url }}" defer="defer"></script> {% endcomment %}
     {% comment %} <script src="{{ 'header-dropdown.js' | asset_url }}" defer="defer"></script> {% endcomment %}
-
     {{ 'global.js' |  asset_url |  script_tag }}
   </body>
 </html>

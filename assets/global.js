@@ -98,32 +98,32 @@ function itemRemove(e, el) {
 // 	}
 // });
 
-document.addEventListener("DOMContentLoaded", function () {
-	const menuToggle = document.getElementById("menu-toggle");
-	const mobileMenu = document.getElementById("mobile-menu");
+// document.addEventListener("DOMContentLoaded", function () {
+// 	const menuToggle = document.getElementById("menu-toggle");
+// 	const mobileMenu = document.getElementById("mobile-menu");
 
-	if (menuToggle && mobileMenu) {
-		menuToggle.addEventListener("click", function (e) {
-			e.stopPropagation();
-			if (mobileMenu.classList.contains("open")) {
-				mobileMenu.classList.remove("open");
-			} else {
-				mobileMenu.classList.add("open");
-			}
-		});
+// 	if (menuToggle && mobileMenu) {
+// 		menuToggle.addEventListener("click", function (e) {
+// 			e.stopPropagation();
+// 			if (mobileMenu.classList.contains("open")) {
+// 				mobileMenu.classList.remove("open");
+// 			} else {
+// 				mobileMenu.classList.add("open");
+// 			}
+// 		});
 
-		// Close if clicked outside
-		document.addEventListener("click", function (e) {
-			if (
-				mobileMenu.classList.contains("open") &&
-				!mobileMenu.contains(e.target) &&
-				!menuToggle.contains(e.target)
-			) {
-				mobileMenu.classList.remove("open");
-			}
-		});
-	}
-});
+// 		// Close if clicked outside
+// 		document.addEventListener("click", function (e) {
+// 			if (
+// 				mobileMenu.classList.contains("open") &&
+// 				!mobileMenu.contains(e.target) &&
+// 				!menuToggle.contains(e.target)
+// 			) {
+// 				mobileMenu.classList.remove("open");
+// 			}
+// 		});
+// 	}
+// });
 
 /*  =======================
      Header 2 Area End 
@@ -135,64 +135,111 @@ document.addEventListener("DOMContentLoaded", function () {
 	======================
 */
 
-document.addEventListener("DOMContentLoaded", function () {
-	// Mobile Hamburger Menu
-	const toggle = document.getElementById("hamburger-toggle");
-	const mobileMenu = document.getElementById("mobile-menu");
+// document.addEventListener("DOMContentLoaded", function () {
+// 	// Mobile Hamburger Menu
+// 	const toggle = document.getElementById("hamburger-toggle");
+// 	const mobileMenu = document.getElementById("mobile-menu");
 
-	if (toggle && mobileMenu) {
-		toggle.addEventListener("click", function (e) {
-			e.stopPropagation();
-			mobileMenu.classList.toggle("-translate-x-full");
-		});
+// 	if (toggle && mobileMenu) {
+// 		toggle.addEventListener("click", function (e) {
+// 			e.stopPropagation();
+// 			mobileMenu.classList.toggle("-translate-x-full");
+// 		});
 
-		// Close mobile menu if clicked outside
-		document.addEventListener("click", function (e) {
-			if (!mobileMenu.contains(e.target) && !toggle.contains(e.target)) {
-				mobileMenu.classList.add("-translate-x-full");
-			}
-		});
-	}
+// 		// Close mobile menu if clicked outside
+// 		document.addEventListener("click", function (e) {
+// 			if (!mobileMenu.contains(e.target) && !toggle.contains(e.target)) {
+// 				mobileMenu.classList.add("-translate-x-full");
+// 			}
+// 		});
+// 	}
 
-	// Desktop Dropdowns
-	const dropdowns = document.querySelectorAll(".header3-nav li.relative");
-	dropdowns.forEach((li) => {
-		const submenu = li.querySelector("ul");
-		if (!submenu) return;
+// 	// Desktop Dropdowns
+// 	const dropdowns = document.querySelectorAll(".header3-nav li.relative");
+// 	dropdowns.forEach((li) => {
+// 		const submenu = li.querySelector("ul");
+// 		if (!submenu) return;
 
-		li.addEventListener("mouseenter", () => {
-			submenu.classList.remove("opacity-0", "pointer-events-none");
-			submenu.classList.add("opacity-100", "pointer-events-auto");
-		});
+// 		li.addEventListener("mouseenter", () => {
+// 			submenu.classList.remove("opacity-0", "pointer-events-none");
+// 			submenu.classList.add("opacity-100", "pointer-events-auto");
+// 		});
 
-		li.addEventListener("mouseleave", () => {
-			submenu.classList.add("opacity-0", "pointer-events-none");
-			submenu.classList.remove("opacity-100", "pointer-events-auto");
-		});
-	});
-});
+// 		li.addEventListener("mouseleave", () => {
+// 			submenu.classList.add("opacity-0", "pointer-events-none");
+// 			submenu.classList.remove("opacity-100", "pointer-events-auto");
+// 		});
+// 	});
+// });
 
-// Mobile Hamburger Menu
-const toggle = document.getElementById("hamburger-toggle");
-const mobileMenu = document.getElementById("mobile-menu");
+// // Mobile Hamburger Menu
+// const toggle = document.getElementById("hamburger-toggle");
+// const mobileMenu = document.getElementById("mobile-menu");
 
-if (toggle && mobileMenu) {
-	toggle.addEventListener("click", function (e) {
-		e.stopPropagation();
-		mobileMenu.classList.toggle("-translate-x-full");
-	});
+// if (toggle && mobileMenu) {
+// 	toggle.addEventListener("click", function (e) {
+// 		e.stopPropagation();
+// 		mobileMenu.classList.toggle("-translate-x-full");
+// 	});
 
-	document.addEventListener("click", function (e) {
-		if (!mobileMenu.contains(e.target) && !toggle.contains(e.target)) {
-			mobileMenu.classList.add("-translate-x-full");
-		}
-	});
-}
+// 	document.addEventListener("click", function (e) {
+// 		if (!mobileMenu.contains(e.target) && !toggle.contains(e.target)) {
+// 			mobileMenu.classList.add("-translate-x-full");
+// 		}
+// 	});
+// }
 
 /*  =======================
      Header 3 Area End 
 	======================
 */
+
+/*============================
+	Header-Mega-Menu Start
+==============================*/
+
+/*=== Mega Menu Enhancements Start ==*/
+
+// Mega menu hover handling
+document.addEventListener("DOMContentLoaded", function () {
+	const megaMenus = document.querySelectorAll(".nav-mega-menu");
+
+	megaMenus.forEach((menu) => {
+		const megaMenu = menu.querySelector(".mega-menu");
+
+		// Add hover delay for better UX
+		let hoverTimer;
+
+		menu.addEventListener("mouseenter", function () {
+			clearTimeout(hoverTimer);
+			hoverTimer = setTimeout(() => {
+				megaMenu.style.display = "block";
+			}, 150);
+		});
+
+		menu.addEventListener("mouseleave", function () {
+			clearTimeout(hoverTimer);
+			hoverTimer = setTimeout(() => {
+				megaMenu.style.display = "none";
+			}, 300);
+		});
+
+		// Keep menu open when hovering over mega menu
+		megaMenu.addEventListener("mouseenter", function () {
+			clearTimeout(hoverTimer);
+		});
+
+		megaMenu.addEventListener("mouseleave", function () {
+			hoverTimer = setTimeout(() => {
+				megaMenu.style.display = "none";
+			}, 300);
+		});
+	});
+});
+
+/*=== Mega Menu Enhancements End ==*/
+
+/*=== Off-Canvas Drawer Start ===*/
 
 /*=====================
 	Header-Main Start
@@ -288,10 +335,6 @@ if (toggle && mobileMenu) {
 /*====================
 	Header-Main End
 ======================*/
-
-/*============================
-	Header-Mega-Menu Start
-==============================*/
 
 /*============================
 	Header-Mega-Menu End

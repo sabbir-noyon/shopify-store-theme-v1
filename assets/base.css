@@ -109,143 +109,6 @@ html {
     Header 2 Area Start 
 ==========================*/
 
-/* General Header */
-.header-main-section {
-	padding: 0 20px;
-	border-bottom: 1px solid #eee;
-}
-
-.header-main-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-/* Logo */
-.site-logo {
-	max-height: 50px;
-	transition: all 0.3s ease;
-}
-
-/* Desktop Nav */
-.nav-list {
-	list-style: none;
-	display: flex;
-	gap: 20px;
-}
-.nav-list li {
-	position: relative;
-}
-.nav-list a {
-	font-size: 18px;
-	color: #000;
-	text-decoration: none;
-	padding: 8px 12px;
-}
-
-/* Dropdown */
-.dropdown-menu {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	background: #fff;
-	min-width: 180px;
-	display: none;
-	flex-direction: column;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-}
-.dropdown:hover .dropdown-menu {
-	display: block;
-}
-
-/* Icons */
-.nav-icon-list {
-	display: flex;
-	gap: 15px;
-}
-.nav-icon-item i {
-	font-size: 18px;
-	font-weight: bold;
-	color: #000;
-}
-.user-icon i {
-	font-size: 23px;
-}
-
-/* Mobile Styles */
-.hamburger-menu button {
-	font-size: 28px;
-	background: none;
-	border: none;
-	cursor: pointer;
-}
-
-/* Mobile Offcanvas Menu */
-.mobile-offcanvas {
-	position: fixed;
-	top: 0;
-	left: -100%;
-	width: 250px;
-	height: 100%;
-	background: #fff;
-	padding: 20px;
-	transition: left 0.3s ease;
-	z-index: 9999;
-}
-.mobile-offcanvas.open {
-	left: 0;
-}
-.mobile-offcanvas ul {
-	list-style: none;
-	padding: 0;
-}
-.mobile-offcanvas ul li {
-	margin-bottom: 15px;
-}
-.mobile-offcanvas ul li a {
-	font-size: 18px;
-	color: #000;
-	text-decoration: none;
-}
-
-/* Responsive Scaling */
-@media (max-width: 992px) {
-	.site-logo {
-		max-height: 40px;
-	}
-	.nav-icon-item i {
-		font-size: 20px;
-	}
-	.user-icon i {
-		font-size: 22px;
-	}
-}
-
-@media (max-width: 768px) {
-	.site-logo {
-		max-height: 35px;
-	}
-	.nav-icon-item i {
-		font-size: 18px;
-	}
-	.user-icon i {
-		font-size: 22px;
-	}
-}
-
-@media (max-width: 576px) {
-	.site-logo {
-		max-height: 30px;
-	}
-	.nav-icon-item i {
-		font-size: 16px;
-	}
-	.user-icon i {
-		font-size: 18px;
-	}
-}
-
 /*=======================
     Header 2 Area End 
 =========================*/
@@ -254,27 +117,13 @@ html {
     Header 3 Area Start 
 ==========================*/
 
-.header3-nav ul li a {
-	text-decoration: none !important;
-	color: #000 !important;
-}
-
-.header3-nav ul li ul {
-	transition: opacity 0.25s ease, transform 0.25s ease;
-	transform: translateY(5px);
-}
-
-.header3-nav ul li:hover > ul {
-	transform: translateY(0);
-}
-
 /*======================
     Header 3 Area End 
 ========================*/
 
-/*=====================
-	Header-Main Start
-=======================*/
+/* ===========================
+	Header-Mega-Menu Start
+=============================*/
 
 /* ===== Header Main ===== */
 .header-main-section {
@@ -1012,15 +861,225 @@ body.drawer-locked {
 
 /*=== Off-Canvas Area End ===/*
 
-/*====================
-	Header-Main End
-======================*/
 
-/*===========================
-	Header-Mega-Menu Start
-=============================*/
+/*--------------------------------
+	Mega Menu Specific CSS Start 
+-----------------------------------*/
 
-/*===========================
+/* Mega Menu Base */
+.nav-mega-menu {
+	position: static !important;
+}
+
+.mega-menu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+	border-top: 1px solid #eee;
+	z-index: 999;
+	padding: 30px 0;
+}
+
+.nav-mega-menu:hover .mega-menu {
+	display: block;
+}
+
+.mega-menu-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 30px;
+	align-items: start;
+}
+
+/* Mega Menu Columns */
+.mega-menu-column h4 {
+	font-family: "Afacad", "sans-serif";
+	font-size: 18px;
+	font-weight: 700;
+	color: #000;
+	margin-bottom: 15px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.mega-menu-column ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.mega-menu-column ul li {
+	margin-bottom: 8px;
+}
+
+.mega-menu-column ul li a {
+	font-family: "Afacad", "sans-serif";
+	font-size: 16px;
+	color: #555;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	display: block;
+	padding: 4px 0;
+}
+
+.mega-menu-column ul li a:hover {
+	color: #c8102e;
+	transform: translateX(5px);
+}
+
+/* Image Columns */
+.mega-menu-image {
+	grid-column: span 1;
+}
+
+.mega-menu-banner {
+	position: relative;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mega-menu-banner img {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.3s ease;
+}
+
+.mega-menu-banner:hover img {
+	transform: scale(1.05);
+}
+
+.banner-overlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+	padding: 20px;
+	color: white;
+}
+
+.banner-title {
+	display: block;
+	font-family: "Afacad", "sans-serif";
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 8px;
+}
+
+.banner-button {
+	display: inline-block;
+	font-family: "Afacad", "sans-serif";
+	font-size: 14px;
+	color: white;
+	text-decoration: none;
+	padding: 6px 16px;
+	border: 1px solid white;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+
+.banner-button:hover {
+	background: white;
+	color: #000;
+}
+
+/* Products Column */
+.mega-menu-products {
+	grid-column: span 1.5;
+}
+
+.product-card {
+	display: flex;
+	gap: 12px;
+	margin-bottom: 20px;
+	padding: 12px;
+	border-radius: 8px;
+	transition: background 0.3s ease;
+}
+
+.product-card:hover {
+	background: #f9f9f9;
+}
+
+.product-card img {
+	width: 80px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 4px;
+	flex-shrink: 0;
+}
+
+.product-info h5 {
+	font-family: "Afacad", "sans-serif";
+	font-size: 16px;
+	font-weight: 600;
+	margin: 0 0 4px 0;
+	color: #000;
+}
+
+.product-info p {
+	font-family: "Afacad", "sans-serif";
+	font-size: 14px;
+	color: #666;
+	margin: 0 0 6px 0;
+	line-height: 1.3;
+}
+
+.product-price {
+	font-family: "Afacad", "sans-serif";
+	font-size: 16px;
+	font-weight: 700;
+	color: #c8102e;
+}
+
+/* Responsive Mega Menu */
+@media (max-width: 1200px) {
+	.mega-menu-container {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 20px;
+	}
+
+	.mega-menu-products {
+		grid-column: span 2;
+	}
+}
+
+@media (max-width: 991px) {
+	.mega-menu {
+		display: none !important;
+	}
+
+	/* Mobile off-canvas styles remain same as your existing code */
+}
+
+/* Override existing dropdown styles for mega menu */
+.nav-mega-menu .nav-submenu {
+	display: none !important;
+}
+
+.nav-mega-menu:hover > a {
+	color: #c8102e !important;
+}
+
+.nav-mega-menu:hover > a svg {
+	transform: rotate(180deg);
+}
+
+/*--------------------------------
+	Mega Menu Specific CSS End 
+-----------------------------------*/
+
+/* ===========================
 	Header-Mega-Menu End
 =============================*/
 
