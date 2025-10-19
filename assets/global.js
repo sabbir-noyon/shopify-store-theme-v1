@@ -235,6 +235,41 @@ document.addEventListener("DOMContentLoaded", function () {
 			}, 300);
 		});
 	});
+
+	// ===== BLOG DROPDOWN HOVER DELAY (ONLY FOR MEGA MENU PROJECT) =====
+
+	// if (!document.body.classList.contains("mega-menu-project")) return;
+	if (!document.querySelector(".header-main-section.mega-menu-project")) return;
+
+	const blogDropdown = document.querySelector(".nav-dropdown");
+	if (blogDropdown) {
+		const blogSubmenu = blogDropdown.querySelector(".nav-submenu");
+		let blogHoverTimer;
+
+		blogDropdown.addEventListener("mouseenter", function () {
+			clearTimeout(blogHoverTimer);
+			blogHoverTimer = setTimeout(() => {
+				blogSubmenu.style.display = "block";
+			}, 150);
+		});
+
+		blogDropdown.addEventListener("mouseleave", function () {
+			clearTimeout(blogHoverTimer);
+			blogHoverTimer = setTimeout(() => {
+				blogSubmenu.style.display = "none";
+			}, 300);
+		});
+
+		blogSubmenu.addEventListener("mouseenter", function () {
+			clearTimeout(blogHoverTimer);
+		});
+
+		blogSubmenu.addEventListener("mouseleave", function () {
+			blogHoverTimer = setTimeout(() => {
+				blogSubmenu.style.display = "none";
+			}, 300);
+		});
+	}
 });
 
 /*=== Mega Menu Enhancements End ==*/

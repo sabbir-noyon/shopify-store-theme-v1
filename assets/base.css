@@ -882,6 +882,7 @@ body.drawer-locked {
 	border-top: 1px solid #eee;
 	z-index: 999;
 	padding: 30px 0;
+	margin-top: -17px;
 }
 
 .nav-mega-menu:hover .mega-menu {
@@ -1058,8 +1059,6 @@ body.drawer-locked {
 	.mega-menu {
 		display: none !important;
 	}
-
-	/* Mobile off-canvas styles remain same as your existing code */
 }
 
 /* Override existing dropdown styles for mega menu */
@@ -1074,6 +1073,32 @@ body.drawer-locked {
 .nav-mega-menu:hover > a svg {
 	transform: rotate(180deg);
 }
+
+/* ONLY for Mega Menu Project - Blog dropdown gap fix */
+.mega-menu-project .nav-dropdown .nav-submenu {
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 20px;
+	padding: 10px 0px;
+}
+
+/* Mega Menu Project hover delay */
+.mega-menu-project .nav-dropdown:hover .nav-submenu {
+	display: block !important;
+}
+
+/* Mega Menu Off Canvas CSS Start */
+
+.mega-drawer-item .mega-drawer-toggle .mega-chevron {
+	transition: transform 0.3s ease !important;
+	transform: rotate(0deg) !important;
+}
+.mega-drawer-item.open .mega-drawer-toggle .mega-chevron {
+	transform: rotate(180deg) !important;
+}
+
+/* Mega Menu Off Canvas CSS End */
 
 /*--------------------------------
 	Mega Menu Specific CSS End 
