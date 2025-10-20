@@ -882,7 +882,7 @@ body.drawer-locked {
 	border-top: 1px solid #eee;
 	z-index: 999;
 	padding: 30px 0;
-	margin-top: -17px;
+	margin-top: -30px;
 }
 
 .nav-mega-menu:hover .mega-menu {
@@ -895,18 +895,19 @@ body.drawer-locked {
 	padding: 0 20px;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
-	gap: 30px;
+	gap: 40px;
 	align-items: start;
 }
 
 /* Mega Menu Columns */
 .mega-menu-column h4 {
 	font-family: "Afacad", "sans-serif";
-	font-size: 18px;
-	font-weight: 700;
-	color: #000;
+	font-size: 24px;
+	font-weight: 500;
+	color: #000000;
+	line-height: 32px;
 	margin-bottom: 15px;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	letter-spacing: 1px;
 }
 
@@ -922,17 +923,19 @@ body.drawer-locked {
 
 .mega-menu-column ul li a {
 	font-family: "Afacad", "sans-serif";
-	font-size: 16px;
-	color: #555;
+	font-size: 19px !important;
+	font-weight: 400 !important;
+	line-height: 24px !important;
+	color: #000000 !important;
 	text-decoration: none;
-	transition: all 0.3s ease;
+	transition: color 0.2s ease, transform 0.2s ease !important;
 	display: block;
 	padding: 4px 0;
 }
 
 .mega-menu-column ul li a:hover {
-	color: #c8102e;
-	transform: translateX(5px);
+	color: #c8102e !important;
+	transform: scale(1.03) !important;
 }
 
 /* Image Columns */
@@ -949,14 +952,14 @@ body.drawer-locked {
 
 .mega-menu-banner img {
 	width: 100%;
-	height: 300px;
+	height: 100% !important;
 	object-fit: cover;
 	display: block;
-	transition: transform 0.3s ease;
+	transition: transform 0.5s ease !important;
 }
 
 .mega-menu-banner:hover img {
-	transform: scale(1.05);
+	transform: scale(1.04);
 }
 
 .banner-overlay {
@@ -965,28 +968,34 @@ body.drawer-locked {
 	left: 0;
 	right: 0;
 	background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-	padding: 20px;
+	padding: 20px 10px;
 	color: white;
-}
-
-.banner-title {
-	display: block;
-	font-family: "Afacad", "sans-serif";
-	font-size: 20px;
-	font-weight: 700;
-	margin-bottom: 8px;
 }
 
 .banner-button {
 	display: inline-block;
 	font-family: "Afacad", "sans-serif";
-	font-size: 14px;
-	color: white;
+	color: #000 !important;
+	background-color: #ffffff;
 	text-decoration: none;
-	padding: 6px 16px;
+	padding: 4px 0px !important;
 	border: 1px solid white;
-	border-radius: 4px;
+	border-radius: 20px;
 	transition: all 0.3s ease;
+	text-align: center !important;
+	margin: 0 auto !important;
+}
+
+.banner-button:hover p {
+	color: #c8102e !important;
+	transition: color 0.4s ease !important;
+}
+
+.banner-button p {
+	font-family: "Afacad", "sans-serif";
+	text-align: center !important;
+	margin: 0 auto !important;
+	font-size: 17px !important;
 }
 
 .banner-button:hover {
@@ -1003,7 +1012,7 @@ body.drawer-locked {
 	display: flex;
 	gap: 12px;
 	margin-bottom: 20px;
-	padding: 12px;
+	padding: 3px 1px;
 	border-radius: 8px;
 	transition: background 0.3s ease;
 }
@@ -1014,7 +1023,7 @@ body.drawer-locked {
 
 .product-card img {
 	width: 80px;
-	height: 100px;
+	height: 120px;
 	object-fit: cover;
 	border-radius: 4px;
 	flex-shrink: 0;
@@ -1022,26 +1031,56 @@ body.drawer-locked {
 
 .product-info h5 {
 	font-family: "Afacad", "sans-serif";
-	font-size: 16px;
-	font-weight: 600;
+	font-size: 18px;
+	font-weight: 700;
 	margin: 0 0 4px 0;
 	color: #000;
 }
 
 .product-info p {
 	font-family: "Afacad", "sans-serif";
-	font-size: 14px;
-	color: #666;
+	font-size: 15px;
+	font-weight: 400;
+	color: #000;
 	margin: 0 0 6px 0;
-	line-height: 1.3;
+	line-height: 1.2;
 }
 
 .product-price {
 	font-family: "Afacad", "sans-serif";
 	font-size: 16px;
 	font-weight: 700;
-	color: #c8102e;
+	color: #000000;
 }
+
+/* Product Card Links */
+.product-card-link {
+	text-decoration: none;
+	color: inherit;
+	display: block;
+}
+
+/* .product-card-link:hover .product-info h5, */
+.product-card-link:hover .product-info p {
+	color: #c8102e;
+	font-weight: 500;
+	transition: color 0.4s ease, font-weight 0.3s ease !important;
+}
+
+.product-card-link:hover .product-card {
+	background: #f9f9f9;
+	cursor: pointer;
+}
+
+/* Ensure text elements inherit colors */
+.product-info h5,
+.product-info p {
+	transition: color 0.4s ease !important;
+}
+
+/* =============== TEMPORRARY TESTING START ======= */
+
+/* ============== TEMPORRARY TESTING END ========= */
 
 /* Responsive Mega Menu */
 @media (max-width: 1200px) {
@@ -1080,7 +1119,21 @@ body.drawer-locked {
 	left: 50%;
 	transform: translateX(-50%);
 	margin-top: 20px;
-	padding: 10px 0px;
+	padding: 16px 0px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+	border-top: 1px solid #eee;
+}
+
+.mega-menu-project .nav-dropdown .nav-submenu li a {
+	font-size: 19px !important;
+	font-weight: 400 !important;
+	line-height: 24px !important;
+	transition: color 0.2s ease, transform 0.2s ease !important;
+}
+
+.mega-menu-project .nav-dropdown .nav-submenu li a:hover {
+	color: #c8102e !important;
+	transform: scale(1.03) !important;
 }
 
 /* Mega Menu Project hover delay */

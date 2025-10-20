@@ -655,7 +655,7 @@
           <div class="mega-menu">
             <div class="mega-menu-container">
               <div class="mega-menu-column">
-                <h4>Categories / Layouts</h4>
+                <h4>Categories</h4>
                 <ul>
                   <li><a href="#">All Products</a></li>
                   <li><a href="#">Men's Clothing</a></li>
@@ -679,33 +679,33 @@
               </div>
               
               <div class="mega-menu-column">
-                <h4>By Occasion or Style</h4>
+                <h4>By Occasion</h4>
                 <ul>
                   <li><a href="#">Formal Wear</a></li>
                   <li><a href="#">Casual Wear</a></li>
                   <li><a href="#">Sportswear</a></li>
                   <li><a href="#">Ethnic & Cultural</a></li>
-                  <li><a href="#">Party & Evening Wear</a></li>
+                  <li><a href="#">Party & Evening</a></li>
                   <li><a href="#">Summer Collection</a></li>
                 </ul>
               </div>
               
               <div class="mega-menu-column mega-menu-image">
                 <div class="mega-menu-banner">
-                  <img src="{{ 'mega-menu-men.jpg' | asset_url }}" alt="Men's Collection" width="300" height="400">
+                  <a href="#"><img src="{{ 'mega-menu-men.jpg' | asset_url }}" alt="Men's Collection" width="300" height="400"></a>
                   <div class="banner-overlay">
-                    <span class="banner-title">Men</span>
-                    <a href="#" class="banner-button">Shop Now</a>
+                    {% comment %} <span class="banner-title">Men</span> {% endcomment %}
+                    <a href="#" class="banner-button"><p>Men | Shop Now</p></a>
                   </div>
                 </div>
               </div>
               
               <div class="mega-menu-column mega-menu-image">
                 <div class="mega-menu-banner">
-                  <img src="{{ 'mega-menu-women.jpg' | asset_url }}" alt="Women's Collection" width="300" height="400">
+                  <a href="#"><img src="{{ 'mega-menu-women.jpg' | asset_url }}" alt="Women's Collection" width="300" height="400"></a>
                   <div class="banner-overlay">
-                    <span class="banner-title">Women</span>
-                    <a href="#" class="banner-button">Shop Now</a>
+                    {% comment %} <span class="banner-title">Women</span> {% endcomment %}
+                    <a href="#" class="banner-button"><p>Women | Shop Now</p></a>
                   </div>
                 </div>
               </div>
@@ -729,7 +729,7 @@
           <div class="mega-menu">
             <div class="mega-menu-container">
               <div class="mega-menu-column">
-                <h4>Popular Collections</h4>
+                <h4>Popular</h4>
                 <ul>
                   <li><a href="#">Summer Collection</a></li>
                   <li><a href="#">Winter Collection</a></li>
@@ -753,7 +753,7 @@
               </div>
               
               <div class="mega-menu-column">
-                <h4>Accessories & Add-ons</h4>
+                <h4>Accessories</h4>
                 <ul>
                   <li><a href="#">Watches & Jewelry</a></li>
                   <li><a href="#">Handbags</a></li>
@@ -765,7 +765,7 @@
               </div>
               
               <div class="mega-menu-column">
-                <h4>Limited / Exclusive</h4>
+                <h4>Exclusive</h4>
                 <ul>
                   <li><a href="#">New Arrivals</a></li>
                   <li><a href="#">Best Sellers</a></li>
@@ -778,7 +778,8 @@
               
               <div class="mega-menu-column mega-menu-products">
                 <h4>Recent Products</h4>
-                <div class="product-card">
+                 <a href="/products/t-shirt" class="product-card-link">
+                  <div class="product-card">
                   <img src="{{ 'product-1.jpg' | asset_url }}" alt="T-shirt" width="80" height="100">
                   <div class="product-info">
                     <h5>T-shirt</h5>
@@ -786,7 +787,10 @@
                     <span class="product-price">$69.99</span>
                   </div>
                 </div>
-                <div class="product-card">
+                 </a>
+               
+                 <a href="/products/polo-shirt" class="product-card-link">
+                 <div class="product-card">
                   <img src="{{ 'product-2.jpg' | asset_url }}" alt="Polo Shirt" width="80" height="100">
                   <div class="product-info">
                     <h5>Polo Shirt</h5>
@@ -794,6 +798,8 @@
                     <span class="product-price">$89.99</span>
                   </div>
                 </div>
+                 </a>
+                
               </div>
             </div>
           </div>
