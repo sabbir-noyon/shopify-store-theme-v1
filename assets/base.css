@@ -149,10 +149,14 @@ html {
 	gap: 20px;
 }
 
+/* .column-logo img {
+	margin-left: -25px;
+} */
+
 /* Navigation */
 .column-navigation .main-nav .nav-list {
 	display: flex;
-	gap: 20px;
+	gap: 26px;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -861,10 +865,9 @@ body.drawer-locked {
 
 /*=== Off-Canvas Area End ===/*
 
-
-/*--------------------------------
-	Mega Menu Specific CSS Start 
------------------------------------*/
+/*=====================================
+	Mega Menu-Only Specific CSS Start 
+========================================*/
 
 /* Mega Menu Base */
 .nav-mega-menu {
@@ -1078,10 +1081,6 @@ body.drawer-locked {
 	transition: color 0.4s ease !important;
 }
 
-/* =============== TEMPORRARY TESTING START ======= */
-
-/* ============== TEMPORRARY TESTING END ========= */
-
 /* Responsive Mega Menu */
 @media (max-width: 1200px) {
 	.mega-menu-container {
@@ -1100,7 +1099,7 @@ body.drawer-locked {
 	}
 }
 
-/* Override existing dropdown styles for mega menu */
+/* Override existing dropdown for mega menu */
 .nav-mega-menu .nav-submenu {
 	display: none !important;
 }
@@ -1113,7 +1112,7 @@ body.drawer-locked {
 	transform: rotate(180deg);
 }
 
-/* ONLY for Mega Menu Project - Blog dropdown gap fix */
+/* ONLY for Mega Menu Project - Blog dropdown */
 .mega-menu-project .nav-dropdown .nav-submenu {
 	top: 100%;
 	left: 50%;
@@ -1141,7 +1140,68 @@ body.drawer-locked {
 	display: block !important;
 }
 
-/* Mega Menu Off Canvas CSS Start */
+/*==== Laptop Screen Responsive ====*/
+@media (max-width: 1340px) and (min-width: 1201px) {
+	.header-main-container {
+		padding: 20px 0px;
+		padding-right: 40px;
+	}
+
+	.column-logo .site-logo {
+		width: 190px;
+		height: auto;
+	}
+
+	.column-navigation .main-nav .nav-list {
+		gap: 25px;
+	}
+}
+
+@media (max-width: 1200px) and (min-width: 992px) {
+	.header-main-container {
+		padding: 20px 0px;
+		padding-right: 40px;
+	}
+
+	.column-logo .site-logo {
+		width: 190px;
+		height: auto;
+	}
+
+	.column-navigation .main-nav .nav-list {
+		gap: 25px;
+	}
+}
+
+@media (max-width: 991px) {
+	.header-main-container {
+		padding: 25px 20px !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.header-main-container {
+		padding: 25px 15px !important;
+	}
+}
+
+@media (max-width: 424px) {
+	.header-main-container {
+		padding: 25px 10px !important;
+	}
+}
+
+@media (max-width: 374px) {
+	.column-logo {
+		width: 190px !important;
+		height: auto !important;
+	}
+	.header-main-container {
+		padding: 25px 10px !important;
+	}
+}
+
+/*=== Mega Menu-Only Off Canvas CSS Start ===*/
 
 .mega-drawer-item .mega-drawer-toggle .mega-chevron {
 	transition: transform 0.3s ease !important;
@@ -1151,13 +1211,20 @@ body.drawer-locked {
 	transform: rotate(180deg) !important;
 }
 
-/* Mega Menu Off Canvas CSS End */
+.mega-drawer-toggle span {
+	font-weight: 600;
+	text-transform: capitalize;
+	font-size: 18px;
+	font-family: "Afacad", "sans-serif";
+}
 
-/*--------------------------------
-	Mega Menu Specific CSS End 
------------------------------------*/
+/*=== Mega Menu-Only Off Canvas CSS End ===*/
 
-/* ===========================
+/*===================================
+	Mega Menu-Only Specific CSS End 
+=====================================*/
+
+/*===========================
 	Header-Mega-Menu End
 =============================*/
 
