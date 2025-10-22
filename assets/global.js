@@ -78,122 +78,6 @@ function itemRemove(e, el) {
 	});
 }
 
-/*  =======================
-     Header 2 Area Start 
-	======================
-*/
-
-// // Mobile menu toggle
-// const menuToggle = document.getElementById("menu-toggle");
-// const mobileMenu = document.getElementById("mobile-menu");
-
-// menuToggle.addEventListener("click", () => {
-// 	mobileMenu.style.left = mobileMenu.style.left === "0px" ? "-100%" : "0px";
-// });
-
-// // Close menu when clicking outside
-// document.addEventListener("click", (e) => {
-// 	if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-// 		mobileMenu.style.left = "-100%";
-// 	}
-// });
-
-// document.addEventListener("DOMContentLoaded", function () {
-// 	const menuToggle = document.getElementById("menu-toggle");
-// 	const mobileMenu = document.getElementById("mobile-menu");
-
-// 	if (menuToggle && mobileMenu) {
-// 		menuToggle.addEventListener("click", function (e) {
-// 			e.stopPropagation();
-// 			if (mobileMenu.classList.contains("open")) {
-// 				mobileMenu.classList.remove("open");
-// 			} else {
-// 				mobileMenu.classList.add("open");
-// 			}
-// 		});
-
-// 		// Close if clicked outside
-// 		document.addEventListener("click", function (e) {
-// 			if (
-// 				mobileMenu.classList.contains("open") &&
-// 				!mobileMenu.contains(e.target) &&
-// 				!menuToggle.contains(e.target)
-// 			) {
-// 				mobileMenu.classList.remove("open");
-// 			}
-// 		});
-// 	}
-// });
-
-/*  =======================
-     Header 2 Area End 
-	======================
-*/
-
-/*  =======================
-     Header 3 Area Start 
-	======================
-*/
-
-// document.addEventListener("DOMContentLoaded", function () {
-// 	// Mobile Hamburger Menu
-// 	const toggle = document.getElementById("hamburger-toggle");
-// 	const mobileMenu = document.getElementById("mobile-menu");
-
-// 	if (toggle && mobileMenu) {
-// 		toggle.addEventListener("click", function (e) {
-// 			e.stopPropagation();
-// 			mobileMenu.classList.toggle("-translate-x-full");
-// 		});
-
-// 		// Close mobile menu if clicked outside
-// 		document.addEventListener("click", function (e) {
-// 			if (!mobileMenu.contains(e.target) && !toggle.contains(e.target)) {
-// 				mobileMenu.classList.add("-translate-x-full");
-// 			}
-// 		});
-// 	}
-
-// 	// Desktop Dropdowns
-// 	const dropdowns = document.querySelectorAll(".header3-nav li.relative");
-// 	dropdowns.forEach((li) => {
-// 		const submenu = li.querySelector("ul");
-// 		if (!submenu) return;
-
-// 		li.addEventListener("mouseenter", () => {
-// 			submenu.classList.remove("opacity-0", "pointer-events-none");
-// 			submenu.classList.add("opacity-100", "pointer-events-auto");
-// 		});
-
-// 		li.addEventListener("mouseleave", () => {
-// 			submenu.classList.add("opacity-0", "pointer-events-none");
-// 			submenu.classList.remove("opacity-100", "pointer-events-auto");
-// 		});
-// 	});
-// });
-
-// // Mobile Hamburger Menu
-// const toggle = document.getElementById("hamburger-toggle");
-// const mobileMenu = document.getElementById("mobile-menu");
-
-// if (toggle && mobileMenu) {
-// 	toggle.addEventListener("click", function (e) {
-// 		e.stopPropagation();
-// 		mobileMenu.classList.toggle("-translate-x-full");
-// 	});
-
-// 	document.addEventListener("click", function (e) {
-// 		if (!mobileMenu.contains(e.target) && !toggle.contains(e.target)) {
-// 			mobileMenu.classList.add("-translate-x-full");
-// 		}
-// 	});
-// }
-
-/*  =======================
-     Header 3 Area End 
-	======================
-*/
-
 /*============================
 	Header-Mega-Menu Start
 ==============================*/
@@ -207,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	megaMenus.forEach((menu) => {
 		const megaMenu = menu.querySelector(".mega-menu");
 
-		// Add hover delay for better UX
+		// Add hover delay
 		let hoverTimer;
 
 		menu.addEventListener("mouseenter", function () {
@@ -236,9 +120,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 
-	// ===== BLOG DROPDOWN HOVER DELAY (ONLY FOR MEGA MENU PROJECT) =====
+	// ===== BLOG DROPDOWN HOVER DELAY (ONLY FOR MEGA MENU) =====
 
-	// if (!document.body.classList.contains("mega-menu-project")) return;
 	if (!document.querySelector(".header-main-section.mega-menu-project")) return;
 
 	const blogDropdown = document.querySelector(".nav-dropdown");
@@ -275,10 +158,6 @@ document.addEventListener("DOMContentLoaded", function () {
 /*=== Mega Menu Enhancements End ==*/
 
 /*=== Off-Canvas Drawer Start ===*/
-
-/*=====================
-	Header-Main Start
-=======================*/
 
 // Off-canvas drawer
 
@@ -366,10 +245,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	drawerPanel &&
 		drawerPanel.addEventListener("click", (e) => e.stopPropagation());
 })();
-
-/*====================
-	Header-Main End
-======================*/
 
 /*============================
 	Header-Mega-Menu End

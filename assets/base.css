@@ -105,22 +105,6 @@ html {
 	Announcement Bar End
 ===========================*/
 
-/*=======================
-    Header 2 Area Start 
-==========================*/
-
-/*=======================
-    Header 2 Area End 
-=========================*/
-
-/*=======================
-    Header 3 Area Start 
-==========================*/
-
-/*======================
-    Header 3 Area End 
-========================*/
-
 /* ===========================
 	Header-Mega-Menu Start
 =============================*/
@@ -148,10 +132,6 @@ html {
 	align-items: center;
 	gap: 20px;
 }
-
-/* .column-logo img {
-	margin-left: -25px;
-} */
 
 /* Navigation */
 .column-navigation .main-nav .nav-list {
@@ -506,7 +486,7 @@ html {
 	--drawer-max: 520px;
 }
 
-/* panel (the actual drawer) */
+/* panel (actual drawer) */
 .site-drawer__panel {
 	position: fixed;
 	left: 0;
@@ -971,7 +951,7 @@ body.drawer-locked {
 	left: 0;
 	right: 0;
 	background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-	padding: 20px 10px;
+	padding: 20px 5px;
 	color: white;
 }
 
@@ -1075,7 +1055,6 @@ body.drawer-locked {
 	cursor: pointer;
 }
 
-/* Ensure text elements inherit colors */
 .product-info h5,
 .product-info p {
 	transition: color 0.4s ease !important;
@@ -1112,7 +1091,7 @@ body.drawer-locked {
 	transform: rotate(180deg);
 }
 
-/* ONLY for Mega Menu Project - Blog dropdown */
+/* Only for Mega Menu -- Blog dropdown area */
 .mega-menu-project .nav-dropdown .nav-submenu {
 	top: 100%;
 	left: 50%;
@@ -1198,6 +1177,82 @@ body.drawer-locked {
 	}
 	.header-main-container {
 		padding: 25px 10px !important;
+	}
+}
+
+/* ===== 1250px to 1201px Mega Menu Container Fixes ===== */
+@media (max-width: 1250px) and (min-width: 1201px) {
+	.mega-menu-container {
+		grid-template-columns: repeat(5, 1fr);
+		gap: 25px;
+		max-width: 1100px;
+		padding: 0 15px;
+	}
+
+	/* Adjust products column */
+	.mega-menu-products {
+		grid-column: span 1;
+	}
+
+	/* Font size adjustments */
+	.mega-menu-column h4 {
+		font-size: 22px;
+		margin-bottom: 12px;
+	}
+
+	.mega-menu-column ul li a {
+		font-size: 18px !important;
+	}
+}
+
+/* ===== 1200px to 993px Mega Menu Container Fixes ===== */
+@media (max-width: 1200px) and (min-width: 992px) {
+	.mega-menu-container {
+		grid-template-columns: repeat(5, 1fr);
+		gap: 25px;
+		max-width: 1100px;
+	}
+
+	.mega-menu-products {
+		grid-column: span 1;
+	}
+
+	/* Font reductions */
+	.mega-menu-column h4 {
+		font-size: 20px;
+	}
+
+	.mega-menu-column ul li a {
+		font-size: 17px !important;
+	}
+
+	/* Adjust product cards */
+	.product-card img {
+		width: 70px;
+		height: 100px;
+	}
+
+	.product-info h5 {
+		font-size: 16px;
+	}
+
+	.product-info p {
+		font-size: 14px;
+	}
+}
+
+/* 1100px to 992px Mega Menu Container Fixes */
+@media (max-width: 1100px) and (min-width: 992px) {
+	.banner-overlay {
+		padding: 20px 3px;
+	}
+
+	.banner-button {
+		padding: 4px 0px !important;
+	}
+
+	.banner-overlay .banner-button p {
+		font-size: 16px !important;
 	}
 }
 
