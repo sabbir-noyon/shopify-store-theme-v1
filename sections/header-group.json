@@ -28,7 +28,7 @@
     "header_mega_menu": {
       "type": "header-mega-menu",
       "settings": {
-        "header_mega_menu": "dropdown-menu",
+        "header_mega_menu": "mega-menu",
         "header_mega_menu_selection": false
       }
     }
