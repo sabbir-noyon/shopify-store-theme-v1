@@ -1,253 +1,266 @@
 <!-- Navigation Menu -->
 <div class="header-main-section mega-menu-project">
   <div class="header-main-container">
+    <!-- Left: Hamburger + Logo -->
+    <div class="column-left">
+      <!-- Hamburger -->
+      <div class="hamburger-menu">
+        <button id="menu-toggle">
+          <svg width="24" height="24" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="m22 16.75c0-.414-.336-.75-.75-.75h-18.5c-.414 0-.75.336-.75.75s.336.75.75.75h18.5c.414 0 .75-.336.75-.75zm0-5c0-.414-.336-.75-.75-.75h-18.5c-.414 0-.75.336-.75.75s.336.75.75.75h18.5c.414 0 .75-.336.75-.75zm0-5c0-.414-.336-.75-.75-.75h-18.5c-.414 0-.75.336-.75.75s.336.75.75.75h18.5c.414 0 .75-.336.75-.75z" fill-rule="nonzero"/>
+          </svg>
+        </button>
+      </div>
 
-   <!-- Left: Hamburger + Logo -->
-  <div class="column-left">
-    <!-- Hamburger -->
-    <div class="hamburger-menu">
-      <button id="menu-toggle">
-        <svg width="24" height="24" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m22 16.75c0-.414-.336-.75-.75-.75h-18.5c-.414 0-.75.336-.75.75s.336.75.75.75h18.5c.414 0 .75-.336.75-.75zm0-5c0-.414-.336-.75-.75-.75h-18.5c-.414 0-.75.336-.75.75s.336.75.75.75h18.5c.414 0 .75-.336.75-.75zm0-5c0-.414-.336-.75-.75-.75h-18.5c-.414 0-.75.336-.75.75s.336.75.75.75h18.5c.414 0 .75-.336.75-.75z" fill-rule="nonzero"/></svg> 
-      </button>
+      <!-- Logo -->
+      <div class="column-logo">
+        <a class="logo-link" href="/">
+          <img src="{{ 'logo-1.png' | asset_url }}" alt="Logo" class="site-logo" width="" height="">
+        </a>
+      </div>
     </div>
 
-    <!-- Logo -->
-    <div class="column-logo">
-      <a class="logo-link" href="/">
-        <img src="{{ 'logo-1.png' | asset_url }}" alt="Logo" class="site-logo" width="" height="">
-      </a>
-    </div>
-  </div>
+    <!-- Center: Navigation -->
+    <div class="column-navigation">
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="#">Home</a></li>
 
-  <!-- Center: Navigation -->
-  <div class="column-navigation">
-    <nav class="main-nav">
-      <ul class="nav-list">
-        <li><a href="#">Home</a></li>
-
-        <!-- Shop Mega Menu -->
-        <li class="nav-mega-menu">
-          <a href="#" class="nav-dropdown-toggle">
-            Shop
-            <svg width="18px" height="18px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <title>chevron-down-small</title>
+          <!-- Shop Mega Menu -->
+          <li class="nav-mega-menu">
+            <a href="#" class="nav-dropdown-toggle">
+              Shop
+              <svg width="18px" height="18px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>chevron-down-small</title>
                 <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g id="add"  transform="translate(134.186667, 187.520000)">
+                  <g id="add" transform="translate(134.186667, 187.520000)">
                     <polygon id="arrowhead-down" points="121.813333 151.893333 0 30.2933333 30.2933333 0 121.813333 91.7333333 213.333333 0 243.626667 30.2933333"></polygon>
                   </g>
                 </g>
-            </svg>
-          </a>
-          <div class="mega-menu">
-            <div class="mega-menu-container">
-              <div class="mega-menu-column">
-                <h4>Categories</h4>
-                <ul>
-                  <li><a href="#">All Products</a></li>
-                  <li><a href="#">Men's Clothing</a></li>
-                  <li><a href="#">Women's Clothing</a></li>
-                  <li><a href="#">Kids & Baby</a></li>
-                  <li><a href="#">Accessories</a></li>
-                  <li><a href="#">Shoes & Footwear</a></li>
-                </ul>
-              </div>
-              
-              <div class="mega-menu-column">
-                <h4>Shop Features</h4>
-                <ul>
-                  <li><a href="#">New Arrivals</a></li>
-                  <li><a href="#">Best Sellers</a></li>
-                  <li><a href="#">Trending Now</a></li>
-                  <li><a href="#">Sale & Discounts</a></li>
-                  <li><a href="#">Limited Edition</a></li>
-                  <li><a href="#">Gift Ideas</a></li>
-                </ul>
-              </div>
-              
-              <div class="mega-menu-column">
-                <h4>By Occasion</h4>
-                <ul>
-                  <li><a href="#">Formal Wear</a></li>
-                  <li><a href="#">Casual Wear</a></li>
-                  <li><a href="#">Sportswear</a></li>
-                  <li><a href="#">Ethnic & Cultural</a></li>
-                  <li><a href="#">Party & Evening</a></li>
-                  <li><a href="#">Summer Collection</a></li>
-                </ul>
-              </div>
-              
-              <div class="mega-menu-column mega-menu-image">
-                <div class="mega-menu-banner">
-                  <a href="#"><img src="{{ 'mega-menu-men.jpg' | asset_url }}" alt="Men's Collection" width="300" height="400"></a>
-                  <div class="banner-overlay">
-                    {% comment %} <span class="banner-title">Men</span> {% endcomment %}
-                    <a href="#" class="banner-button"><p>Men | Shop Now</p></a>
-                  </div>
+              </svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-container">
+                <div class="mega-menu-column">
+                  <h4>Categories</h4>
+                  <ul>
+                    <li><a href="#">All Products</a></li>
+                    <li><a href="#">Men's Clothing</a></li>
+                    <li><a href="#">Women's Clothing</a></li>
+                    <li><a href="#">Kids & Baby</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Shoes & Footwear</a></li>
+                  </ul>
                 </div>
-              </div>
-              
-              <div class="mega-menu-column mega-menu-image">
-                <div class="mega-menu-banner">
-                  <a href="#"><img src="{{ 'mega-menu-women.jpg' | asset_url }}" alt="Women's Collection" width="300" height="400"></a>
-                  <div class="banner-overlay">
-                    {% comment %} <span class="banner-title">Women</span> {% endcomment %}
-                    <a href="#" class="banner-button"><p>Women | Shop Now</p></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <!-- Collections Mega Menu -->
-        <li class="nav-mega-menu">
-          <a href="#" class="nav-dropdown-toggle">
-            Collections
-            <svg width="18px" height="18px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <title>chevron-down-small</title>
-              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g id="add"  transform="translate(134.186667, 187.520000)">
-                  <polygon id="arrowhead-down" points="121.813333 151.893333 0 30.2933333 30.2933333 0 121.813333 91.7333333 213.333333 0 243.626667 30.2933333"></polygon>
-                </g>
-              </g>
-            </svg>
-          </a>
-          <div class="mega-menu">
-            <div class="mega-menu-container">
-              <div class="mega-menu-column">
-                <h4>Popular</h4>
-                <ul>
-                  <li><a href="#">Summer Collection</a></li>
-                  <li><a href="#">Winter Collection</a></li>
-                  <li><a href="#">Festive Wear</a></li>
-                  <li><a href="#">Workwear Essentials</a></li>
-                  <li><a href="#">Street Style</a></li>
-                  <li><a href="#">Minimal Style</a></li>
-                </ul>
-              </div>
-              
-              <div class="mega-menu-column">
-                <h4>Featured Themes</h4>
-                <ul>
-                  <li><a href="#">Denim Collection</a></li>
-                  <li><a href="#">Athleisure</a></li>
-                  <li><a href="#">Eco-Friendly</a></li>
-                  <li><a href="#">Luxury Line</a></li>
-                  <li><a href="#">Plus Size</a></li>
-                  <li><a href="#">Seasonal Picks</a></li>
-                </ul>
-              </div>
-              
-              <div class="mega-menu-column">
-                <h4>Accessories</h4>
-                <ul>
-                  <li><a href="#">Watches & Jewelry</a></li>
-                  <li><a href="#">Handbags</a></li>
-                  <li><a href="#">Caps & Hats</a></li>
-                  <li><a href="#">Sunglasses</a></li>
-                  <li><a href="#">Scarves</a></li>
-                  <li><a href="#">Belts & Wallets</a></li>
-                </ul>
-              </div>
-              
-              <div class="mega-menu-column">
-                <h4>Exclusive</h4>
-                <ul>
-                  <li><a href="#">New Arrivals</a></li>
-                  <li><a href="#">Best Sellers</a></li>
-                  <li><a href="#">Flash Deals</a></li>
-                  <li><a href="#">Clearance Sale</a></li>
-                  <li><a href="#">Bundle Offers</a></li>
-                  <li><a href="#">Coming Soon</a></li>
-                </ul>
-              </div>
-              
-              <div class="mega-menu-column mega-menu-products">
-                <h4>Recent Products</h4>
-                 <a href="/products/t-shirt" class="product-card-link">
-                  <div class="product-card">
-                  <img src="{{ 'product-1.jpg' | asset_url }}" alt="T-shirt" width="80" height="100">
-                  <div class="product-info">
-                    <h5>T-shirt</h5>
-                    <p>Women's Short Sleeve V-Neck Activewear T-Shirt</p>
-                    <span class="product-price">$69.99</span>
-                  </div>
-                </div>
-                 </a>
-               
-                 <a href="/products/polo-shirt" class="product-card-link">
-                 <div class="product-card">
-                  <img src="{{ 'product-2.jpg' | asset_url }}" alt="Polo Shirt" width="80" height="100">
-                  <div class="product-info">
-                    <h5>Polo Shirt</h5>
-                    <p>Men's Short Sleeve V-Neck Activewear Polo</p>
-                    <span class="product-price">$89.99</span>
-                  </div>
-                </div>
-                 </a>
                 
+                <div class="mega-menu-column">
+                  <h4>Shop Features</h4>
+                  <ul>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">Trending Now</a></li>
+                    <li><a href="#">Sale & Discounts</a></li>
+                    <li><a href="#">Limited Edition</a></li>
+                    <li><a href="#">Gift Ideas</a></li>
+                  </ul>
+                </div>
+                
+                <div class="mega-menu-column">
+                  <h4>By Occasion</h4>
+                  <ul>
+                    <li><a href="#">Formal Wear</a></li>
+                    <li><a href="#">Casual Wear</a></li>
+                    <li><a href="#">Sportswear</a></li>
+                    <li><a href="#">Ethnic & Cultural</a></li>
+                    <li><a href="#">Party & Evening</a></li>
+                    <li><a href="#">Summer Collection</a></li>
+                  </ul>
+                </div>
+                
+                <div class="mega-menu-column mega-menu-image">
+                  <div class="mega-menu-banner">
+                    <a href="#">
+                      <img src="{{ 'mega-menu-men.jpg' | asset_url }}" alt="Men's Collection" width="300" height="400">
+                    </a>
+                    <div class="banner-overlay">
+                      <a href="#" class="banner-button">
+                        <p>Men | Shop Now</p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mega-menu-column mega-menu-image">
+                  <div class="mega-menu-banner">
+                    <a href="#">
+                      <img src="{{ 'mega-menu-women.jpg' | asset_url }}" alt="Women's Collection" width="300" height="400">
+                    </a>
+                    <div class="banner-overlay">
+                      <a href="#" class="banner-button">
+                        <p>Women | Shop Now</p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-        <li class="nav-dropdown">
-          <a href="#" class="nav-dropdown-toggle">
-            Blogs
-            <svg width="18px" height="18px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <title>chevron-down-small</title>
-                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g id="add"  transform="translate(134.186667, 187.520000)">
-                    <polygon id="arrowhead-down" points="121.813333 151.893333 0 30.2933333 30.2933333 0 121.813333 91.7333333 213.333333 0 243.626667 30.2933333">
+          </li>
 
-                    </polygon>
+          <!-- Collections Mega Menu -->
+          <li class="nav-mega-menu">
+            <a href="#" class="nav-dropdown-toggle">
+              Collections
+              <svg width="18px" height="18px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>chevron-down-small</title>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="add" transform="translate(134.186667, 187.520000)">
+                    <polygon id="arrowhead-down" points="121.813333 151.893333 0 30.2933333 30.2933333 0 121.813333 91.7333333 213.333333 0 243.626667 30.2933333"></polygon>
                   </g>
                 </g>
-            </svg>
-          </a>
-          <ul class="nav-submenu">
-            <li><a href="#">Latest Posts</a></li>
-            <li><a href="#">Fashion Tips</a></li>
-            <li><a href="#">Style Guides</a></li>
-            <li><a href="#">News & Updates</a></li>
-            <li><a href="#">Sales Related</a></li>
-          </ul>
-        </li>
-      
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
+              </svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-container">
+                <div class="mega-menu-column">
+                  <h4>Popular</h4>
+                  <ul>
+                    <li><a href="#">Summer Collection</a></li>
+                    <li><a href="#">Winter Collection</a></li>
+                    <li><a href="#">Festive Wear</a></li>
+                    <li><a href="#">Workwear Essentials</a></li>
+                    <li><a href="#">Street Style</a></li>
+                    <li><a href="#">Minimal Style</a></li>
+                  </ul>
+                </div>
+                
+                <div class="mega-menu-column">
+                  <h4>Featured Themes</h4>
+                  <ul>
+                    <li><a href="#">Denim Collection</a></li>
+                    <li><a href="#">Athleisure</a></li>
+                    <li><a href="#">Eco-Friendly</a></li>
+                    <li><a href="#">Luxury Line</a></li>
+                    <li><a href="#">Plus Size</a></li>
+                    <li><a href="#">Seasonal Picks</a></li>
+                  </ul>
+                </div>
+                
+                <div class="mega-menu-column">
+                  <h4>Accessories</h4>
+                  <ul>
+                    <li><a href="#">Watches & Jewelry</a></li>
+                    <li><a href="#">Handbags</a></li>
+                    <li><a href="#">Caps & Hats</a></li>
+                    <li><a href="#">Sunglasses</a></li>
+                    <li><a href="#">Scarves</a></li>
+                    <li><a href="#">Belts & Wallets</a></li>
+                  </ul>
+                </div>
+                
+                <div class="mega-menu-column">
+                  <h4>Exclusive</h4>
+                  <ul>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">Flash Deals</a></li>
+                    <li><a href="#">Clearance Sale</a></li>
+                    <li><a href="#">Bundle Offers</a></li>
+                    <li><a href="#">Coming Soon</a></li>
+                  </ul>
+                </div>
+                
+                <div class="mega-menu-column mega-menu-products">
+                  <h4>Recent Products</h4>
+                  <a href="/products/t-shirt" class="product-card-link">
+                    <div class="product-card">
+                      <img src="{{ 'product-1.jpg' | asset_url }}" alt="T-shirt" width="80" height="100">
+                      <div class="product-info">
+                        <h5>T-shirt</h5>
+                        <p>Women's Short Sleeve V-Neck Activewear T-Shirt</p>
+                        <span class="product-price">$69.99</span>
+                      </div>
+                    </div>
+                  </a>
+                 
+                  <a href="/products/polo-shirt" class="product-card-link">
+                    <div class="product-card">
+                      <img src="{{ 'product-2.jpg' | asset_url }}" alt="Polo Shirt" width="80" height="100">
+                      <div class="product-info">
+                        <h5>Polo Shirt</h5>
+                        <p>Men's Short Sleeve V-Neck Activewear Polo</p>
+                        <span class="product-price">$89.99</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
 
-  <!-- Right Icons (Same as before) -->
-  <div class="column-icons">
-    <ul class="nav-icon-list">
-      <!-- User -->
+          <li class="nav-dropdown">
+            <a href="#" class="nav-dropdown-toggle">
+              Blogs
+              <svg width="18px" height="18px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>chevron-down-small</title>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="add" transform="translate(134.186667, 187.520000)">
+                    <polygon id="arrowhead-down" points="121.813333 151.893333 0 30.2933333 30.2933333 0 121.813333 91.7333333 213.333333 0 243.626667 30.2933333"></polygon>
+                  </g>
+                </g>
+              </svg>
+            </a>
+            <ul class="nav-submenu">
+              <li><a href="#">Latest Posts</a></li>
+              <li><a href="#">Fashion Tips</a></li>
+              <li><a href="#">Style Guides</a></li>
+              <li><a href="#">News & Updates</a></li>
+              <li><a href="#">Sales Related</a></li>
+            </ul>
+          </li>
+        
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Right Icons -->
+    <div class="column-icons">
+      <ul class="nav-icon-list">
+        <!-- User -->
         <li>
           <a class="nav-icon-item" href="/account">
-           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#000000" d="M15.71 12.71a6 6 0 1 0-7.42 0a10 10 0 0 0-6.22 8.18a1 1 0 0 0 2 .22a8 8 0 0 1 15.9 0a1 1 0 0 0 1 .89h.11a1 1 0 0 0 .88-1.1a10 10 0 0 0-6.25-8.19ZM12 12a4 4 0 1 1 4-4a4 4 0 0 1-4 4Z"/></svg>  
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="#000000" d="M15.71 12.71a6 6 0 1 0-7.42 0a10 10 0 0 0-6.22 8.18a1 1 0 0 0 2 .22a8 8 0 0 1 15.9 0a1 1 0 0 0 1 .89h.11a1 1 0 0 0 .88-1.1a10 10 0 0 0-6.25-8.19ZM12 12a4 4 0 1 1 4-4a4 4 0 0 1-4 4Z"/>
+            </svg>
           </a>
         </li>
         <!-- Search -->
         <li>
           <a class="nav-icon-item" href="#search">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#000000" d="M15.096 5.904a6.5 6.5 0 1 0-9.192 9.192a6.5 6.5 0 0 0 9.192-9.192ZM4.49 4.49a8.5 8.5 0 0 1 12.686 11.272l5.345 5.345l-1.414 1.414l-5.345-5.345A8.501 8.501 0 0 1 4.49 4.49Z"/></svg> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="#000000" d="M15.096 5.904a6.5 6.5 0 1 0-9.192 9.192a6.5 6.5 0 0 0 9.192-9.192ZM4.49 4.49a8.5 8.5 0 0 1 12.686 11.272l5.345 5.345l-1.414 1.414l-5.345-5.345A8.501 8.501 0 0 1 4.49 4.49Z"/>
+            </svg>
           </a>
         </li>
         <!-- Heart -->
         <li>
           <a class="nav-icon-item" href="/pages/wishlist">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#000000" d="M12.001 3.818a6.228 6.228 0 0 1 8.51 9.087l-5.224 5.225h-.001L12 21.415l-7.28-7.279l-1.23-1.232c-.001 0 0 0 0 0A6.228 6.228 0 0 1 12 3.818Zm3.285 11.485l3.811-3.812a4.228 4.228 0 1 0-5.98-5.98L12 6.627L10.883 5.51a4.228 4.228 0 1 0-5.98 5.98l1.232 1.232L12 18.587l3.285-3.285Z"/></svg> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="#000000" d="M12.001 3.818a6.228 6.228 0 0 1 8.51 9.087l-5.224 5.225h-.001L12 21.415l-7.28-7.279l-1.23-1.232c-.001 0 0 0 0 0A6.228 6.228 0 0 1 12 3.818Zm3.285 11.485l3.811-3.812a4.228 4.228 0 1 0-5.98-5.98L12 6.627L10.883 5.51a4.228 4.228 0 1 0-5.98 5.98l1.232 1.232L12 18.587l3.285-3.285Z"/>
+            </svg>
           </a>
         </li>
         <!-- Cart -->
         <li class="shop-cart">
           <a class="nav-icon-item" href="/cart">
-             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#000000" d="M2 2h4v4h15v12H4V4H2V2zm4 14h13V8H6v8zm0 3h4v3H6v-3zm13 0h-4v3h4v-3z"/></svg> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="#000000" d="M2 2h4v4h15v12H4V4H2V2zm4 14h13V8H6v8zm0 3h4v3H6v-3zm13 0h-4v3h4v-3z"/>
+            </svg>
           </a>
         </li>
-    </ul>
-  </div>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -256,7 +269,9 @@
   <div class="site-drawer__panel" role="document">
     <div class="site-drawer-close-container">
       <button class="site-drawer__close" id="drawer-close" aria-label="Close menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32"><path fill="#000000" d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32">
+          <path fill="#000000" d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z"/>
+        </svg>
       </button>
     </div>
 
@@ -270,161 +285,166 @@
       <div class="site-drawer__auth">
         <a href="/account" class="btn btn--login">
           <span class="btn__label">Login</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M15.71 12.71a6 6 0 1 0-7.42 0a10 10 0 0 0-6.22 8.18a1 1 0 0 0 2 .22a8 8 0 0 1 15.9 0a1 1 0 0 0 1 .89h.11a1 1 0 0 0 .88-1.1a10 10 0 0 0-6.25-8.19ZM12 12a4 4 0 1 1 4-4a4 4 0 0 1-4 4Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path d="M15.71 12.71a6 6 0 1 0-7.42 0a10 10 0 0 0-6.22 8.18a1 1 0 0 0 2 .22a8 8 0 0 1 15.9 0a1 1 0 0 0 1 .89h.11a1 1 0 0 0 .88-1.1a10 10 0 0 0-6.25-8.19ZM12 12a4 4 0 1 1 4-4a4 4 0 0 1-4 4Z"/>
+          </svg>
         </a>
       </div>
     </div>
+    
     <hr style="margin-top: -20px;">
+    
     <nav class="site-drawer__nav" aria-label="Drawer navigation">
       <ul class="drawer-menu">
         <li><a href="#" class="drawer-link drawer-nav-parent-text">Home</a></li>
 
-       <!-- Updated (Nested for Mega Menu) -->
-<li class="drawer-item drawer-has-children">
-  <button class="drawer-toggle" aria-expanded="false">
-    <span class="drawer-nav-parent-text">Shop</span>
-    <svg class="icon chevron" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-  <ul class="drawer-submenu">
-    <!-- Categories Column -->
-    <li class="drawer-item mega-drawer-item drawer-has-children">
-      <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
-        <span>Categories / Layouts</span>
-        <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <ul class="drawer-submenu">
-        <li><a href="#" class="drawer-link">All Products</a></li>
-        <li><a href="#" class="drawer-link">Men's Clothing</a></li>
-        <li><a href="#" class="drawer-link">Women's Clothing</a></li>
-        <li><a href="#" class="drawer-link">Kids & Baby</a></li>
-        <li><a href="#" class="drawer-link">Accessories</a></li>
-        <li><a href="#" class="drawer-link">Shoes & Footwear</a></li>
-      </ul>
-    </li>
-    
-    <!-- Shop Features Column -->
-    <li class="drawer-item mega-drawer-item drawer-has-children">
-      <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
-        <span>Shop Features</span>
-        <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <ul class="drawer-submenu">
-        <li><a href="#" class="drawer-link">New Arrivals</a></li>
-        <li><a href="#" class="drawer-link">Best Sellers</a></li>
-        <li><a href="#" class="drawer-link">Trending Now</a></li>
-        <li><a href="#" class="drawer-link">Sale & Discounts</a></li>
-        <li><a href="#" class="drawer-link">Limited Edition</a></li>
-      </ul>
-    </li>
-    
-     <!-- By Occasion or Style Column -->
-    <li class="drawer-item mega-drawer-item drawer-has-children">
-      <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
-        <span>By Occasion or Style</span>
-        <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <ul class="drawer-submenu">
-        <li><a href="#" class="drawer-link">Formal Wear</a></li>
-        <li><a href="#" class="drawer-link">Casual Wear</a></li>
-        <li><a href="#" class="drawer-link">Sportswear</a></li>
-        <li><a href="#" class="drawer-link">Ethnic & Cultural</a></li>
-        <li><a href="#" class="drawer-link">Party & Evening Wear</a></li>
-        <li><a href="#" class="drawer-link">Summer Collection</a></li>
-      </ul>
-    </li>
-  </ul>
-</li>
+        <!-- Off-Canvas (Nested for Mega Menu) -->
+        <li class="drawer-item drawer-has-children">
+          <button class="drawer-toggle" aria-expanded="false">
+            <span class="drawer-nav-parent-text">Shop</span>
+            <svg class="icon chevron" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="drawer-submenu">
+            <!-- Categories Column -->
+            <li class="drawer-item mega-drawer-item drawer-has-children">
+              <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
+                <span>Categories</span>
+                <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="drawer-submenu">
+                <li><a href="#" class="drawer-link">All Products</a></li>
+                <li><a href="#" class="drawer-link">Men's Clothing</a></li>
+                <li><a href="#" class="drawer-link">Women's Clothing</a></li>
+                <li><a href="#" class="drawer-link">Kids & Baby</a></li>
+                <li><a href="#" class="drawer-link">Accessories</a></li>
+                <li><a href="#" class="drawer-link">Shoes & Footwear</a></li>
+              </ul>
+            </li>
+            
+            <!-- Shop Features Column -->
+            <li class="drawer-item mega-drawer-item drawer-has-children">
+              <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
+                <span>Shop Features</span>
+                <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="drawer-submenu">
+                <li><a href="#" class="drawer-link">New Arrivals</a></li>
+                <li><a href="#" class="drawer-link">Best Sellers</a></li>
+                <li><a href="#" class="drawer-link">Trending Now</a></li>
+                <li><a href="#" class="drawer-link">Sale & Discounts</a></li>
+                <li><a href="#" class="drawer-link">Limited Edition</a></li>
+              </ul>
+            </li>
+            
+            <!-- By Occasion Column -->
+            <li class="drawer-item mega-drawer-item drawer-has-children">
+              <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
+                <span>By Occasion</span>
+                <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="drawer-submenu">
+                <li><a href="#" class="drawer-link">Formal Wear</a></li>
+                <li><a href="#" class="drawer-link">Casual Wear</a></li>
+                <li><a href="#" class="drawer-link">Sportswear</a></li>
+                <li><a href="#" class="drawer-link">Ethnic & Cultural</a></li>
+                <li><a href="#" class="drawer-link">Party & Evening</a></li>
+                <li><a href="#" class="drawer-link">Summer Collection</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
 
-        <!-- Collections Mega Menu - Off Canvas Nested Structure -->
-<li class="drawer-item drawer-has-children">
-  <button class="drawer-toggle" aria-expanded="false">
-    <span class="drawer-nav-parent-text">Collections</span>
-    <svg class="icon chevron" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-  <ul class="drawer-submenu">
-    <!-- Popular Collections Column -->
-    <li class="drawer-item mega-drawer-item drawer-has-children">
-      <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
-        <span>Popular Collections</span>
-        <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <ul class="drawer-submenu">
-        <li><a href="#" class="drawer-link">Summer Collection</a></li>
-        <li><a href="#" class="drawer-link">Winter Collection</a></li>
-        <li><a href="#" class="drawer-link">Festive Wear</a></li>
-        <li><a href="#" class="drawer-link">Workwear Essentials</a></li>
-        <li><a href="#" class="drawer-link">Street Style</a></li>
-        <li><a href="#" class="drawer-link">Minimal Style</a></li>
-      </ul>
-    </li>
-    
-    <!-- Featured Themes Column -->
-    <li class="drawer-item mega-drawer-item drawer-has-children">
-      <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
-        <span>Featured Themes</span>
-        <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <ul class="drawer-submenu">
-        <li><a href="#" class="drawer-link">Denim Collection</a></li>
-        <li><a href="#" class="drawer-link">Athleisure</a></li>
-        <li><a href="#" class="drawer-link">Eco-Friendly</a></li>
-        <li><a href="#" class="drawer-link">Luxury Line</a></li>
-        <li><a href="#" class="drawer-link">Plus Size</a></li>
-        <li><a href="#" class="drawer-link">Seasonal Picks</a></li>
-      </ul>
-    </li>
-    
-    <!-- Accessories & Add-ons Column -->
-    <li class="drawer-item mega-drawer-item drawer-has-children">
-      <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
-        <span>Accessories & Add-ons</span>
-        <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <ul class="drawer-submenu">
-        <li><a href="#" class="drawer-link">Watches & Jewelry</a></li>
-        <li><a href="#" class="drawer-link">Handbags</a></li>
-        <li><a href="#" class="drawer-link">Caps & Hats</a></li>
-        <li><a href="#" class="drawer-link">Sunglasses</a></li>
-        <li><a href="#" class="drawer-link">Scarves</a></li>
-        <li><a href="#" class="drawer-link">Belts & Wallets</a></li>
-      </ul>
-    </li>
-    
-    <!-- Limited / Exclusive Column -->
-    <li class="drawer-item mega-drawer-item drawer-has-children">
-      <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
-        <span>Limited / Exclusive</span>
-        <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <ul class="drawer-submenu">
-        <li><a href="#" class="drawer-link">New Arrivals</a></li>
-        <li><a href="#" class="drawer-link">Best Sellers</a></li>
-        <li><a href="#" class="drawer-link">Flash Deals</a></li>
-        <li><a href="#" class="drawer-link">Clearance Sale</a></li>
-        <li><a href="#" class="drawer-link">Bundle Offers</a></li>
-        <li><a href="#" class="drawer-link">Coming Soon</a></li>
-      </ul>
-    </li>
-  </ul>
-</li>
+        <!-- Collections Mega Menu - Off Canvas Nested -->
+        <li class="drawer-item drawer-has-children">
+          <button class="drawer-toggle" aria-expanded="false">
+            <span class="drawer-nav-parent-text">Collections</span>
+            <svg class="icon chevron" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="drawer-submenu">
+            <!-- Popular Column -->
+            <li class="drawer-item mega-drawer-item drawer-has-children">
+              <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
+                <span>Popular</span>
+                <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="drawer-submenu">
+                <li><a href="#" class="drawer-link">Summer Collection</a></li>
+                <li><a href="#" class="drawer-link">Winter Collection</a></li>
+                <li><a href="#" class="drawer-link">Festive Wear</a></li>
+                <li><a href="#" class="drawer-link">Workwear Essentials</a></li>
+                <li><a href="#" class="drawer-link">Street Style</a></li>
+                <li><a href="#" class="drawer-link">Minimal Style</a></li>
+              </ul>
+            </li>
+            
+            <!-- Featured Themes Column -->
+            <li class="drawer-item mega-drawer-item drawer-has-children">
+              <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
+                <span>Featured Themes</span>
+                <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="drawer-submenu">
+                <li><a href="#" class="drawer-link">Denim Collection</a></li>
+                <li><a href="#" class="drawer-link">Athleisure</a></li>
+                <li><a href="#" class="drawer-link">Eco-Friendly</a></li>
+                <li><a href="#" class="drawer-link">Luxury Line</a></li>
+                <li><a href="#" class="drawer-link">Plus Size</a></li>
+                <li><a href="#" class="drawer-link">Seasonal Picks</a></li>
+              </ul>
+            </li>
+            
+            <!-- Accessories Column -->
+            <li class="drawer-item mega-drawer-item drawer-has-children">
+              <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
+                <span>Accessories</span>
+                <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="drawer-submenu">
+                <li><a href="#" class="drawer-link">Watches & Jewelry</a></li>
+                <li><a href="#" class="drawer-link">Handbags</a></li>
+                <li><a href="#" class="drawer-link">Caps & Hats</a></li>
+                <li><a href="#" class="drawer-link">Sunglasses</a></li>
+                <li><a href="#" class="drawer-link">Scarves</a></li>
+                <li><a href="#" class="drawer-link">Belts & Wallets</a></li>
+              </ul>
+            </li>
+            
+            <!-- Exclusive Column -->
+            <li class="drawer-item mega-drawer-item drawer-has-children">
+              <button class="drawer-toggle mega-drawer-toggle" aria-expanded="false">
+                <span>Exclusive</span>
+                <svg class="mega-chevron" width="14" height="14" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="drawer-submenu">
+                <li><a href="#" class="drawer-link">New Arrivals</a></li>
+                <li><a href="#" class="drawer-link">Best Sellers</a></li>
+                <li><a href="#" class="drawer-link">Flash Deals</a></li>
+                <li><a href="#" class="drawer-link">Clearance Sale</a></li>
+                <li><a href="#" class="drawer-link">Bundle Offers</a></li>
+                <li><a href="#" class="drawer-link">Coming Soon</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
         <li class="drawer-item drawer-has-children">
           <button class="drawer-toggle" aria-expanded="false">
             <span class="drawer-nav-parent-text">Blogs</span>
@@ -448,23 +468,47 @@
 
     <div class="site-drawer__actions">
       <a href="/pages/wishlist" class="drawer-action">
-          <span class="drawer-action-value">Wishlist</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M12.001 3.818a6.228 6.228 0 0 1 8.51 9.087l-5.224 5.225h-.001L12 21.415l-7.28-7.279l-1.23-1.232c-.001 0 0 0 0 0A6.228 6.228 0 0 1 12 3.818Zm3.285 11.485l3.811-3.812a4.228 4.228 0 1 0-5.98-5.98L12 6.627L10.883 5.51a4.228 4.228 0 1 0-5.98 5.98l1.232 1.232L12 18.587l3.285-3.285Z"/></svg>
+        <span class="drawer-action-value">Wishlist</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+          <path d="M12.001 3.818a6.228 6.228 0 0 1 8.51 9.087l-5.224 5.225h-.001L12 21.415l-7.28-7.279l-1.23-1.232c-.001 0 0 0 0 0A6.228 6.228 0 0 1 12 3.818Zm3.285 11.485l3.811-3.812a4.228 4.228 0 1 0-5.98-5.98L12 6.627L10.883 5.51a4.228 4.228 0 1 0-5.98 5.98l1.232 1.232L12 18.587l3.285-3.285Z"/>
+        </svg>
       </a>
 
       <a href="#search" class="drawer-action">
-          <span class="drawer-action-value">Search</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M15.096 5.904a6.5 6.5 0 1 0-9.192 9.192a6.5 6.5 0 0 0 9.192-9.192ZM4.49 4.49a8.5 8.5 0 0 1 12.686 11.272l5.345 5.345l-1.414 1.414l-5.345-5.345A8.501 8.501 0 0 1 4.49 4.49Z"/></svg>
+        <span class="drawer-action-value">Search</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+          <path d="M15.096 5.904a6.5 6.5 0 1 0-9.192 9.192a6.5 6.5 0 0 0 9.192-9.192ZM4.49 4.49a8.5 8.5 0 0 1 12.686 11.272l5.345 5.345l-1.414 1.414l-5.345-5.345A8.501 8.501 0 0 1 4.49 4.49Z"/>
+        </svg>
       </a>
     </div>
 
     <div class="site-drawer__socials">
       <div class="socials-title">Follow us on</div>
       <div class="socials-icons">
-        <a class="social" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 224 432"><path fill="#000000" d="M145 429H66V235H0v-76h66v-56q0-48 27-74t72-26q36 0 59 3v67l-41 1q-22 0-30 9t-8 27v49h76l-10 76h-66v194z"/></svg></a>
-        <a class="social" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14" fill="#000000"><g fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"><path d="M10.333 3.644a.25.25 0 1 1 0-.5m0 .5a.25.25 0 1 0 0-.5"/><path d="M.858 3.431A2.573 2.573 0 0 1 3.431.858h6.862a2.573 2.573 0 0 1 2.573 2.573v6.862a2.573 2.573 0 0 1-2.573 2.573H3.43a2.573 2.573 0 0 1-2.573-2.573V3.43Z"/><path d="M4.312 6.862a2.55 2.55 0 1 0 5.1 0a2.55 2.55 0 1 0-5.1 0"/></g></svg></a>
-        <a class="social" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="#000000" d="M9.294 6.928L14.357 1h-1.2L8.762 6.147L5.25 1H1.2l5.31 7.784L1.2 15h1.2l4.642-5.436L10.751 15h4.05L9.294 6.928ZM7.651 8.852l-.538-.775L2.832 1.91h1.843l3.454 4.977l.538.775l4.491 6.47h-1.843l-3.664-5.28Z"/></svg></a>
-        <a class="social" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#000000" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02c.08 1.53.63 3.09 1.75 4.17c1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97c-.57-.26-1.1-.59-1.62-.93c-.01 2.92.01 5.84-.02 8.75c-.08 1.4-.54 2.79-1.35 3.94c-1.31 1.92-3.58 3.17-5.91 3.21c-1.43.08-2.86-.31-4.08-1.03c-2.02-1.19-3.44-3.37-3.65-5.71c-.02-.5-.03-1-.01-1.49c.18-1.9 1.12-3.72 2.58-4.96c1.66-1.44 3.98-2.13 6.15-1.72c.02 1.48-.04 2.96-.04 4.44c-.99-.32-2.15-.23-3.02.37c-.63.41-1.11 1.04-1.36 1.75c-.21.51-.15 1.07-.14 1.61c.24 1.64 1.82 3.02 3.5 2.87c1.12-.01 2.19-.66 2.77-1.61c.19-.33.4-.67.41-1.06c.1-1.79.06-3.57.07-5.36c.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        <a class="social" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 224 432">
+            <path fill="#000000" d="M145 429H66V235H0v-76h66v-56q0-48 27-74t72-26q36 0 59 3v67l-41 1q-22 0-30 9t-8 27v49h76l-10 76h-66v194z"/>
+          </svg>
+        </a>
+        <a class="social" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14" fill="#000000">
+            <g fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.333 3.644a.25.25 0 1 1 0-.5m0 .5a.25.25 0 1 0 0-.5"/>
+              <path d="M.858 3.431A2.573 2.573 0 0 1 3.431.858h6.862a2.573 2.573 0 0 1 2.573 2.573v6.862a2.573 2.573 0 0 1-2.573 2.573H3.43a2.573 2.573 0 0 1-2.573-2.573V3.43Z"/>
+              <path d="M4.312 6.862a2.55 2.55 0 1 0 5.1 0a2.55 2.55 0 1 0-5.1 0"/>
+            </g>
+          </svg>
+        </a>
+        <a class="social" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+            <path fill="#000000" d="M9.294 6.928L14.357 1h-1.2L8.762 6.147L5.25 1H1.2l5.31 7.784L1.2 15h1.2l4.642-5.436L10.751 15h4.05L9.294 6.928ZM7.651 8.852l-.538-.775L2.832 1.91h1.843l3.454 4.977l.538.775l4.491 6.47h-1.843l-3.664-5.28Z"/>
+          </svg>
+        </a>
+        <a class="social" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#000000" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02c.08 1.53.63 3.09 1.75 4.17c1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97c-.57-.26-1.1-.59-1.62-.93c-.01 2.92.01 5.84-.02 8.75c-.08 1.4-.54 2.79-1.35 3.94c-1.31 1.92-3.58 3.17-5.91 3.21c-1.43.08-2.86-.31-4.08-1.03c-2.02-1.19-3.44-3.37-3.65-5.71c-.02-.5-.03-1-.01-1.49c.18-1.9 1.12-3.72 2.58-4.96c1.66-1.44 3.98-2.13 6.15-1.72c.02 1.48-.04 2.96-.04 4.44c-.99-.32-2.15-.23-3.02.37c-.63.41-1.11 1.04-1.36 1.75c-.21.51-.15 1.07-.14 1.61c.24 1.64 1.82 3.02 3.5 2.87c1.12-.01 2.19-.66 2.77-1.61c.19-.33.4-.67.41-1.06c.1-1.79.06-3.57.07-5.36c.01-4.03-.01-8.05.02-12.07z"/>
+          </svg>
+        </a>
       </div>
     </div>
 
@@ -484,19 +528,19 @@
   <div class="site-drawer__backdrop" id="drawer-backdrop" tabindex="-1" data-close-drawer></div>
 </div>
 <!-- Off-Canvas Mobile Menu End -->
- 
+
 {% schema %}
 {
   "name": "Header Mega Menu",
   "settings": [
     {
       "type": "link_list",
-      "id": "menu_mega",
-      "label": "Mega Menu"
+      "id": "header_mega_menu",
+      "label": "Header Mega Menu"
     },
     {
       "type": "checkbox",
-      "id": "mega_menu_main",
+      "id": "header_mega_menu_selection",
       "label": "Enable Mega menu",
       "default": false
     }
