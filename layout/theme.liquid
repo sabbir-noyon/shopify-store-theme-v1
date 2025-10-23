@@ -43,8 +43,8 @@
 
     
     {% comment %} <link rel="stylesheet" href="{{ 'header-mega-menu.css' | asset_url }}"> {% endcomment %}
-    {% comment %} <link rel="stylesheet" href="{{ 'header-dropdown-menu.css' | asset_url }}"> {% endcomment %}
-    {{ 'base.css' |  asset_url |  stylesheet_tag }}
+    <link rel="stylesheet" href="{{ 'header-dropdown-menu.css' | asset_url }}">
+    {% comment %} {{ 'base.css' |  asset_url |  stylesheet_tag }} {% endcomment %}
 
     <title>
       {{ page_title }}
@@ -118,7 +118,7 @@
     {{ 'daisyui.js' |  asset_url |  script_tag }}
 
     {% comment %} <script src="{{ 'header-mega-menu.js' | asset_url }}" defer="defer"></script> {% endcomment %}
-    {% comment %} <script src="{{ 'header-dropdown-menu.js' | asset_url }}" defer="defer"></script> {% endcomment %}
-    {{ 'global.js' |  asset_url |  script_tag }}
+    <script src="{{ 'header-dropdown-menu.js' | asset_url }}" defer="defer"></script>
+    {% comment %} {{ 'global.js' |  asset_url |  script_tag }} {% endcomment %}
   </body>
 </html>

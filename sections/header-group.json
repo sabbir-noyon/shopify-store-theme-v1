@@ -25,16 +25,13 @@
         "letter_spacing": 1
       }
     },
-    "header_mega_menu": {
-      "type": "header-mega-menu",
-      "settings": {
-        "header_mega_menu": "mega-menu",
-        "header_mega_menu_selection": false
-      }
+    "header_dropdown_menu": {
+      "type": "header-dropdown-menu",
+      "settings": {}
     }
   },
   "order": [
     "announcement_bar",
-    "header_mega_menu"
+    "header_dropdown_menu"
   ]
 }
