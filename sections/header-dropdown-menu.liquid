@@ -214,6 +214,23 @@
 
 
 
+{% comment %} // {
+//   "name": "Header Dropdown Menu",
+//   "settings": [
+//     {
+//       "type": "link_list",
+//       "id": "header_dropdown_menu",
+//       "label": "Header Dropdown Menu"
+//     },
+//     {
+//       "type": "checkbox",
+//       "id": "header_dropdown_menu_mega_menu_selection",
+//       "label": "Enable Mega menu",
+//       "default": false
+//     }
+//   ]
+// } {% endcomment %}
+
 {% schema %}
 {
   "name": "Header Dropdown Menu",
@@ -221,13 +238,86 @@
     {
       "type": "link_list",
       "id": "header_dropdown_menu",
-      "label": "Header Dropdown Menu"
+      "label": "Main Navigation Menu",
+      "default": "main-menu"
     },
     {
       "type": "checkbox",
-      "id": "header_dropdown_menu_mega_menu_selection",
-      "label": "Enable Mega menu",
+      "id": "enable_mega_menu",
+      "label": "Enable Mega Menu Layout",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_header",
+      "label": "Enable Sticky Header",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo Width",
+      "default": 140
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icons",
+      "label": "Show Right-side Icons (Search, Account, Wishlist, Cart)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mobile_drawer",
+      "label": "Enable Mobile Drawer (Off-canvas Menu)",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "menu_alignment",
+      "label": "Menu Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "header_bg_color",
+      "label": "Header Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "header_text_color",
+      "label": "Menu Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_link",
+      "label": "Optional CTA Button Link"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_label",
+      "label": "Optional CTA Button Label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header Dropdown Menu",
+      "category": "Header"
     }
   ]
 }

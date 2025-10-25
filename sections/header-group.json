@@ -27,10 +27,7 @@
     },
     "header_dropdown_menu": {
       "type": "header-dropdown-menu",
-      "settings": {
-        "header_dropdown_menu": "dropdown-menu",
-        "header_dropdown_menu_mega_menu_selection": false
-      }
+      "settings": {}
     }
   },
   "order": [
