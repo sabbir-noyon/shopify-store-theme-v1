@@ -214,3 +214,87 @@
 
 
 
+{% schema %}
+{
+  "name": "Header Dropdown Menu",
+  "class": "header-section",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "header_dropdown_menu", 
+      "label": "Header Dropdown Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": "⚙️ Header Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_header",
+      "label": "Enable Sticky Header",
+      "default": true,
+      "info": "Header stays at top when scrolling"
+    },
+    {
+      "type": "checkbox", 
+      "id": "show_cart_count",
+      "label": "Show Cart Item Count",
+      "default": true
+    },
+    {
+      "type": "header", 
+      "content": "🎨 Design Settings"
+    },
+    {
+      "type": "color",
+      "id": "header_bg_color",
+      "label": "Header Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "header_text_color", 
+      "label": "Header Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "header_height",
+      "label": "Header Height (Desktop)",
+      "min": 60,
+      "max": 120, 
+      "step": 5,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "📱 Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "mobile_breakpoint",
+      "label": "Mobile Breakpoint",
+      "min": 768,
+      "max": 1024,
+      "step": 16,
+      "default": 992,
+      "unit": "px",
+      "info": "Screen width when mobile menu activates"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mobile_search",
+      "label": "Show Search in Mobile Menu", 
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header Dropdown Menu",
+      "category": "Navigation"
+    }
+  ]
+}
+{% endschema %}
